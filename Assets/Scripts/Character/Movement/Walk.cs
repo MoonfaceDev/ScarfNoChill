@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 
-public class WalkContext
-{
-    public float direction;
-
-    public WalkContext(float direction)
-    {
-        this.direction = direction == 0 ? 0 : Mathf.Sign(direction);
-    }
-}
-
 [RequireComponent(typeof(Rigidbody2D))]
-public class Walk : PlayableBehaviour<WalkContext>
+public class Walk : PlayableBehaviour<Walk.Context>
 {
+    public class Context
+    {
+        public readonly float direction;
+
+        public Context(float direction)
+        {
+            this.direction = direction == 0 ? 0 : Mathf.Sign(direction);
+        }
+    }
+    
     public float speed;
 
     public override bool Playing => Walking;
@@ -20,10 +20,10 @@ public class Walk : PlayableBehaviour<WalkContext>
     public bool Walking
     {
         get => walking;
-        set
+        private set
         {
             walking = value;
-            animator.SetBool(WalkingHash, walking);
+            Animator.SetBool(WalkingHash, walking);
         }
     }
 
@@ -38,12 +38,12 @@ public class Walk : PlayableBehaviour<WalkContext>
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    public override bool CanPlay(WalkContext context)
+    public override bool CanPlay(Context context)
     {
         return context.direction != 0;
     }
 
-    protected override void Execute(WalkContext context)
+    protected override void Execute(Context context)
     {
         Walking = true;
         rigidbody.velocity = new Vector2(context.direction * speed, rigidbody.velocity.y);
