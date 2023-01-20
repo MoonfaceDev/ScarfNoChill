@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Scarf : PlayableBehaviour<Scarf.Context>
 {
@@ -19,7 +18,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 
     private bool active;
 
-    public override bool Playing => active;
+    public override bool Playing => Active;
 
     public float maxStamina;
     public float staminaThreshold;
@@ -34,11 +33,12 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     {
         base.Awake();
         walk = GetComponent<Walk>();
+        stamina = maxStamina;
     }
 
     public override bool CanPlay(Context context)
     {
-        return base.CanPlay(context) && Character.Grounded && stamina >= staminaThreshold ; // TODO: !recovering from kb
+        return base.CanPlay(context) && Character.Grounded && stamina >= staminaThreshold; // TODO: !recovering from kb
     }
 
     protected override void Execute(Context context)

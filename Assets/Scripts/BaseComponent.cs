@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Character))]
 public class BaseComponent : MonoBehaviour
 {
     public Coroutine StartTimeout(Action action, float duration)
