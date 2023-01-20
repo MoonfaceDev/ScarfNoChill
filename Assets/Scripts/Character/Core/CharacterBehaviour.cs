@@ -26,7 +26,7 @@ public abstract class CharacterBehaviour : MonoBehaviour
 
     private int disableCount;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
     }
