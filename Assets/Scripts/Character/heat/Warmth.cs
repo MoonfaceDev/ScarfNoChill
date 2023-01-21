@@ -27,7 +27,7 @@ public class Warmth : CharacterBehaviour
 
     private void Update()
     {
-        heat -= damagePercentage * heatReductionMultiplier * damageRate * Time.time;
+        heat -= damagePercentage * heatReductionMultiplier * damageRate * Time.deltaTime;
     }
 
     private void CheckDeath()
