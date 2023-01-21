@@ -1,31 +1,31 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class Character : BaseComponent
 {
-    public bool Grounded { get; private set; }
+    public LayerMask groundLayer;
+    public Animator Animator { get; private set; }
 
-    public Collider2D[] groundColliders;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public bool Grounded
     {
-        if (IsGroundCollider(collision.collider))
+        get => grounded;
+        private set
         {
-            Grounded = true;
+            grounded = value;
+            Animator.SetBool(GroundedHash, grounded);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private bool grounded;
+    private static readonly int GroundedHash = Animator.StringToHash("grounded");
+
+    private void Awake()
     {
-        if (IsGroundCollider(collision.collider))
-        {
-            Grounded = false;
-        }
+        Animator = GetComponent<Animator>();
     }
 
-    private bool IsGroundCollider(Object col)
+    private void Update()
     {
-        return groundColliders.Any(groundCollider => groundCollider == col);
+        Grounded = Physics2D.Raycast(transform.position, Vector3.down, 0.01f, groundLayer);
     }
 }

@@ -4,7 +4,7 @@
 [RequireComponent(typeof(Animator))]
 public abstract class CharacterBehaviour : BaseComponent
 {
-    protected Animator Animator { get; private set; }
+    protected Animator Animator => Character.Animator;
     protected Character Character { get; private set; }
 
     public bool Enabled
@@ -30,7 +30,6 @@ public abstract class CharacterBehaviour : BaseComponent
 
     protected virtual void Awake()
     {
-        Animator = GetComponent<Animator>();
         Character = GetComponent<Character>();
     }
 }
