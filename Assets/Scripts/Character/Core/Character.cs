@@ -3,7 +3,8 @@
 [RequireComponent(typeof(Collider2D))]
 public class Character : BaseComponent
 {
-    public LayerMask groundLayer;
+    public GroundTrigger groundTrigger;
+
     public Animator Animator { get; private set; }
 
     public float LookDirection
@@ -15,7 +16,7 @@ public class Character : BaseComponent
             transform.rotation = GetRotation(lookDirection);
         }
     }
-    
+
     private float lookDirection;
 
     public bool Grounded
@@ -34,13 +35,10 @@ public class Character : BaseComponent
     private void Awake()
     {
         Animator = GetComponent<Animator>();
+        groundTrigger.onEnter.AddListener(() => Grounded = true);
+        groundTrigger.onExit.AddListener(() => Grounded = false);
     }
 
-    private void Update()
-    {
-        Grounded = Physics2D.Raycast(transform.position, Vector3.down, 0.05f, groundLayer);
-    }
-    
     private static Quaternion GetRotation(float direction)
     {
         return Quaternion.Euler(0, 90 * (1 - direction), 0);
