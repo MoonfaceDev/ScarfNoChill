@@ -44,7 +44,8 @@ public class Warmth : CharacterBehaviour
 
     public void SlowChill(bool startOrEnd, float slowDamageMultiplier_)
     {
-        slowDamageMultiplier = startOrEnd ? slowDamageMultiplier_ : 1;
+        slowDamageMultiplier = startOrEnd ? slowDamageMultiplier * slowDamageMultiplier_ : 
+            slowDamageMultiplier / slowDamageMultiplier_;
     }
 
     private IEnumerator ChillDown()
