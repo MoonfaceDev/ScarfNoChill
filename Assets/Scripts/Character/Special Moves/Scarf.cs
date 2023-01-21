@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Animations;
 
 public class Scarf : PlayableBehaviour<Scarf.Context>
 {
-    public class Context
-    {
-    }
+    public class Context {}
+
+    public int tier; 
+    public RuntimeAnimatorController[] suits;
+
 
     public bool Active
     {
@@ -13,6 +16,11 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         {
             active = value;
             Animator.SetBool(ScarfHash, active);
+
+            if (value)
+                warmth.ChangeDamageRate(heatReductionMultiplier);
+            else
+                warmth.RestoreDamageRate(heatReductionMultiplier);
         }
     }
 
@@ -25,14 +33,22 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     public float staminaReductionRate;
     public float staminaIncrementRate;
 
+    [Range(0, 1)]
+    public float heatReductionMultiplier;
+
     [HideInInspector] public float stamina;
     private Walk walk;
+    private Warmth warmth;
+
     private static readonly int ScarfHash = Animator.StringToHash("scarf");
 
     protected override void Awake()
     {
         base.Awake();
+        tier = 0;
         walk = GetComponent<Walk>();
+        warmth = GetComponent<Warmth>();
+
         stamina = maxStamina;
     }
 
@@ -43,7 +59,6 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 
     protected override void Execute(Context context)
     {
-        // TODO: reduce damage to the bar
         walk.Stop();
         Active = true;
         walk.Enabled = false;
@@ -70,5 +85,10 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     {
         Active = false;
         walk.Enabled = true;
+    }
+
+    public void AdvanceTier()
+    {
+        Character.Animator.runtimeAnimatorController = suits[++tier];
     }
 }
