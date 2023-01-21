@@ -984,10 +984,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldBorder:
     serializedVersion: 2
-    x: -25.99
-    y: -4.73
-    width: 51.91
-    height: 30.5
+    x: -200
+    y: -100
+    width: 400
+    height: 200
   targetPosition: {x: 0, y: 0, z: 0}
   lerpSpeed: 3
 --- !u!114 &519420035
