@@ -2,9 +2,7 @@
 
 public class Scarf : PlayableBehaviour<Scarf.Context>
 {
-    public class Context
-    {
-    }
+    public class Context {}
 
     public bool Active
     {
@@ -13,6 +11,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         {
             active = value;
             Animator.SetBool(ScarfHash, active);
+            wormth.SlowChill(active);
         }
     }
 
@@ -27,12 +26,16 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 
     [HideInInspector] public float stamina;
     private Walk walk;
+    private Wormth wormth;
+
     private static readonly int ScarfHash = Animator.StringToHash("scarf");
 
     protected override void Awake()
     {
         base.Awake();
         walk = GetComponent<Walk>();
+        wormth = GetComponent<Wormth>();
+
         stamina = maxStamina;
     }
 
@@ -43,7 +46,6 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 
     protected override void Execute(Context context)
     {
-        // TODO: reduce damage to the bar
         walk.Stop();
         Active = true;
         walk.Enabled = false;

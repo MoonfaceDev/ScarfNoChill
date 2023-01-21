@@ -757,8 +757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60400e9075241f74a8c435950fee88d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTakenDelaySeconds: 1
-  damageAmount: 10
+  damageTakenDelaySeconds: 0.3
+  damageAmount: 4
+  slowDamageMultiplier: 0.5
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
