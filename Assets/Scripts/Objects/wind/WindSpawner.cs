@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnWind : PlayableBehaviour<SpawnWind.Context>
+public class WindSpawner : PlayableBehaviour<WindSpawner.Context>
 {
     public class Context { };
 

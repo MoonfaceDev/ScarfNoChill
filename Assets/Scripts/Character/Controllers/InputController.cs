@@ -5,6 +5,7 @@ public class InputController : BaseController
     private Walk walk;
     private Scarf scarf;
     private Jump jump;
+    private WindSpawner wind;
 
     protected override void Awake()
     {
@@ -12,6 +13,9 @@ public class InputController : BaseController
         walk = GetComponent<Walk>();
         scarf = GetComponent<Scarf>();
         jump = GetComponent<Jump>();
+        wind = GetComponent<WindSpawner>();
+
+        wind.Play(new WindSpawner.Context());
     }
 
     private void Update()
