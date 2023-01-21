@@ -12,7 +12,7 @@ public class ObjectSpawner : BaseComponent
 
     private int currentLivingObjects;
 
-    private void Awake()
+    private void Start()
     {
         StartCoroutine(Spawn());
     }
