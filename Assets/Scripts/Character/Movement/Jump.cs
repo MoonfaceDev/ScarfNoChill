@@ -13,7 +13,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
         }
     }
 
-    private new Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody;
 
     public float maxJumpTimeSeconds;
     public override bool Playing => Jumping;
@@ -23,7 +23,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
     private float startTime;
     private bool jumping;
     private bool gainSpeed;
-    private float jumpSpeed;
+    private readonly float jumpSpeed;
 
     public bool Jumping
     {
@@ -38,7 +38,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
     protected override void Awake()
     {
         base.Awake();
-        rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -51,7 +51,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
             if (Time.time - startTime > maxJumpTimeSeconds)
                 return;
 
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpSpeed);
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
         }
     }
 
@@ -63,7 +63,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     public override void Stop()
     {
-        rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+        rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
         jumping = false;
     }
 
