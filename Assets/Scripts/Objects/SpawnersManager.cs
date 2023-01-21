@@ -2,8 +2,6 @@
 
 public class SpawnersManager : BaseComponent
 {
-    public delegate void OnUpgrade(string objectType);
-    
     public static Dictionary<string, int> tiers;
     public CraftingMenu craftingMenu;
 
