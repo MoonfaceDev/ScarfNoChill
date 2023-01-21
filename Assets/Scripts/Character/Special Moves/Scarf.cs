@@ -16,7 +16,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         {
             active = value;
             Animator.SetBool(ScarfHash, active);
-            warmth.SlowChill(active, damageMultiplier);
+            warmth.SlowChill(active, heatReductionMultiplier);
         }
     }
 
@@ -30,7 +30,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     public float staminaIncrementRate;
 
     [Range(0, 1)]
-    public float damageMultiplier;
+    public float heatReductionMultiplier;
 
     [HideInInspector] public float stamina;
     private Walk walk;

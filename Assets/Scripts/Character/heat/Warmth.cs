@@ -12,23 +12,23 @@ public class Warmth : CharacterBehaviour
 
     public UnityEvent deathEvent;
 
-    [HideInInspector] public float heat;
+    public float heat;
 
     private static readonly int DyingHash = Animator.StringToHash("dying");
 
-    private float slowDamageMultiplier;
+    private float heatReductionMultiplier;
 
     protected override void Awake()
     {
         base.Awake();
-        slowDamageMultiplier = 1;
+        heatReductionMultiplier = 1;
         heat = MaxWarmth;
         StartCoroutine(ChillDown());
     }
 
     private void TakeDamage()
     {
-        heat -= damagePercentage * slowDamageMultiplier;
+        heat -= damagePercentage * heatReductionMultiplier;
         CheckDeath();
     }
 
@@ -44,8 +44,8 @@ public class Warmth : CharacterBehaviour
 
     public void SlowChill(bool startOrEnd, float slowDamageMultiplier_)
     {
-        slowDamageMultiplier = startOrEnd ? slowDamageMultiplier * slowDamageMultiplier_ : 
-            slowDamageMultiplier / slowDamageMultiplier_;
+        heatReductionMultiplier = startOrEnd ? heatReductionMultiplier * slowDamageMultiplier_ : 
+            heatReductionMultiplier / slowDamageMultiplier_;
     }
 
     private IEnumerator ChillDown()
