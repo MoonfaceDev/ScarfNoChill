@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class StaminaBar : BaseComponent
@@ -7,10 +8,17 @@ public class StaminaBar : BaseComponent
     public Vector3 positionOffset;
     public Scrollbar scrollbar;
 
+    private RectTransform rectTransform;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
+
     private void Update()
     {
         scrollbar.gameObject.SetActive(ShouldDisplay());
-        transform.position = scarf.transform.position + positionOffset;
+        rectTransform.anchoredPosition = scarf.transform.position + positionOffset;
         scrollbar.size = scarf.stamina / scarf.maxStamina;
     }
 

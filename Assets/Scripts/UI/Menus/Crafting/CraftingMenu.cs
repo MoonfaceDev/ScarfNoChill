@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CraftingMenu : BaseComponent
 {
@@ -13,30 +14,35 @@ public class CraftingMenu : BaseComponent
     }
 
     [Serializable]
-    public class RecipeEntry
+    public class RecipeEntry<T> where T : Recipe
     {
-        public Craft.Recipe recipe;
+        public T recipe;
         public string resultName;
         public Sprite resultIcon;
     }
 
     public Inventory inventory;
     public Craft craft;
+    public Scarf scarf;
 
     public CollectableEntry[] collectables;
     public Transform collectablesLayout;
     public GameObject collectablePrefab;
 
-    public RecipeEntry[] recipes;
+    [FormerlySerializedAs("recipes")] public RecipeEntry<SpawnRecipe>[] spawnRecipes;
+    public RecipeEntry<SpawnerRecipe>[] spawnerRecipes;
+    public RecipeEntry<ScarfRecipe>[] scarfRecipes;
+    public RecipeEntry<BootsRecipe> bootsRecipe;
     public Transform recipesLayout;
     public GameObject recipePrefab;
 
     private Dictionary<string, CollectableView> collectableViews;
-    private Dictionary<Craft.Recipe, CraftingRecipeView> recipeViews;
+    private List<Tuple<Recipe, CraftingRecipeView>> recipeViews;
 
     private void Awake()
     {
         InitializeCollectables();
+        recipeViews = new List<Tuple<Recipe, CraftingRecipeView>>();
         InitializeRecipes();
     }
 
@@ -55,24 +61,53 @@ public class CraftingMenu : BaseComponent
 
     private void InitializeRecipes()
     {
-        recipeViews = new Dictionary<Craft.Recipe, CraftingRecipeView>();
-
-        foreach (var recipe in recipes)
+        foreach (var (_, recipeView) in recipeViews)
         {
-            var recipeInstance = Instantiate(recipePrefab, recipesLayout);
-            var recipeView = recipeInstance.GetComponent<CraftingRecipeView>();
-            recipeView.Initialize(GetIngredientsData(recipe.recipe.ingredients), recipe.resultName, recipe.resultIcon,
-                () =>
-                {
-                    craft.CraftRecipe(recipe.recipe);
-                    gameObject.SetActive(false);
-                });
-            recipeViews[recipe.recipe] = recipeView;
+            Destroy(recipeView.gameObject);
         }
+        recipeViews.Clear();
+
+        foreach (var recipe in spawnRecipes)
+        {
+            recipeViews.Add(new Tuple<Recipe, CraftingRecipeView>(recipe.recipe, InitializeRecipe(recipe)));
+        }
+        
+        foreach (var recipe in spawnerRecipes)
+        {
+            if (recipe.recipe.index == SpawnersManager.tiers[recipe.recipe.objectType])
+            {
+                recipeViews.Add(
+                    new Tuple<Recipe, CraftingRecipeView>(recipe.recipe, InitializeRecipe(recipe)));
+            }
+        }
+
+        foreach (var recipe in scarfRecipes)
+        {
+            if (recipe.recipe.index == scarf.tier)
+            {
+                recipeViews.Add(new Tuple<Recipe, CraftingRecipeView>(recipe.recipe, InitializeRecipe(recipe)));
+            }
+        }
+        
+        recipeViews.Add(new Tuple<Recipe, CraftingRecipeView>(bootsRecipe.recipe, InitializeRecipe(bootsRecipe)));
+    }
+
+    private CraftingRecipeView InitializeRecipe<T>(RecipeEntry<T> recipe) where T : Recipe
+    {
+        var recipeInstance = Instantiate(recipePrefab, recipesLayout);
+        var recipeView = recipeInstance.GetComponent<CraftingRecipeView>();
+        recipeView.Initialize(GetIngredientsData(recipe.recipe.ingredients), recipe.resultName, recipe.resultIcon,
+            () =>
+            {
+                craft.CraftRecipe(recipe.recipe);
+                InitializeRecipes();
+                gameObject.SetActive(false);
+            });
+        return recipeView;
     }
 
     private IEnumerable<CraftingIngredientView.Data> GetIngredientsData(
-        IEnumerable<Craft.Recipe.Ingredient> ingredients)
+        IEnumerable<Recipe.Ingredient> ingredients)
     {
         var ingredientsData = new List<CraftingIngredientView.Data>();
         foreach (var ingredient in ingredients)
@@ -86,23 +121,31 @@ public class CraftingMenu : BaseComponent
 
     private void Update()
     {
-        UpdateCollectables();
-        UpdateRecipes();
-    }
-
-    private void UpdateCollectables()
-    {
         foreach (var entry in collectableViews)
         {
             entry.Value.UpdateAmount(inventory.storage[entry.Key]);
         }
+        
+        foreach (var (recipe, view) in recipeViews)
+        {
+            UpdateRecipeView(recipe, view);
+        }
     }
 
-    private void UpdateRecipes()
+    private void UpdateRecipeView(Recipe recipe, CraftingRecipeView view)
     {
-        foreach (var entry in recipeViews)
+        if (!craft.HasRequiredScore(recipe))
         {
-            entry.Value.UpdateData(craft.CanCraft(entry.Key));
+            view.UpdateData(false, $"Required score is {recipe.scoreRequirement}");
+            return;
         }
+
+        if (!craft.HasIngredients(recipe))
+        {
+            view.UpdateData(false, "Missing ingredients");
+            return;
+        }
+
+        view.UpdateData(true, "");
     }
 }
