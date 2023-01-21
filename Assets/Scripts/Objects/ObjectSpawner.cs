@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ObjectSpawner : BaseComponent
 {
+    private const float IntervalMultiplier = 0.66f;
+
     public float size;
     public float interval;
     public Collectable objectPrefab;
@@ -19,7 +21,7 @@ public class ObjectSpawner : BaseComponent
     {
         while (true)
         {
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSeconds(interval * Mathf.Pow(IntervalMultiplier, SpawnersManager.tiers[objectPrefab.objectType]));
             if (currentLivingObjects >= spawnLimit) continue;
             var clone = Instantiate(objectPrefab, GetSpawnPosition(), Quaternion.identity);
             clone.onConsume.AddListener(() => currentLivingObjects--);
@@ -29,7 +31,7 @@ public class ObjectSpawner : BaseComponent
 
     private Vector3 GetSpawnPosition()
     {
-        return transform.position + Random.Range(- size / 2, size / 2) * Vector3.right;
+        return transform.position + Random.Range(-size / 2, size / 2) * Vector3.right;
     }
 
     private void OnDrawGizmos()
