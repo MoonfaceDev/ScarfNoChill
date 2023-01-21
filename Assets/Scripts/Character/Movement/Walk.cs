@@ -49,17 +49,16 @@ public class Walk : PlayableBehaviour<Walk.Context>
         Character.LookDirection = context.direction;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Walking)
         {
-            rigidbody.velocity = new Vector2(Character.LookDirection * speed, rigidbody.velocity.y);
+            transform.position += Character.LookDirection * speed * Time.deltaTime * Vector3.right;
         }
     }
 
     public override void Stop()
     {
         Walking = false;
-        rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
     }
 }
