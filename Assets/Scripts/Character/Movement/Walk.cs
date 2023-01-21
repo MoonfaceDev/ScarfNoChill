@@ -58,6 +58,6 @@ public class Walk : PlayableBehaviour<Walk.Context>
     public override void Stop()
     {
         Walking = false;
-        rigidbody.velocity = Vector2.zero;
+        rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
     }
 }
