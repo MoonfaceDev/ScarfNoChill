@@ -14,7 +14,6 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
         }
     }
 
-    public GameObject snowball;
 
     public override bool Playing => Active;
     private bool active;
@@ -25,21 +24,39 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
         set => active = value;
     }
 
-    public float attackIntervalSeconds;
+    public Vector2 attackIntervalSecondsRange;
+    public float attackRange;
+    public float snowballSpeed;
 
-    private void Awake()
-    {
-        
-    }
+    public GameObject aimObject;
+    public GameObject snowball;
 
     public override bool CanPlay(Context context)
     {
-        return base.CanPlay(context) && context.player.;
+        float distance = Vector2.Distance(gameObject.transform.position, 
+            context.player.transform.position);
+        
+        return base.CanPlay(context) && distance < attackRange;
     }
 
     protected override void Execute(Context context)
     {
         throw new System.NotImplementedException();
+    }
+
+    private IEnumerator ThrowSnowballs()
+    { 
+        while (Active)
+        {
+            float randomInterval = Random.Range(attackIntervalSecondsRange.x, attackIntervalSecondsRange.y);
+            yield return new WaitForSeconds(randomInterval);
+            ThrowSnowball();
+        }
+    }
+
+    private void ThrowSnowball()
+    {
+
     }
 
     public override void Stop()
