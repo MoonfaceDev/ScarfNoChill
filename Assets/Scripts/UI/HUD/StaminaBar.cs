@@ -1,27 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Scrollbar))]
 public class StaminaBar : BaseComponent
 {
     public Scarf scarf;
     public Vector3 positionOffset;
-    public Image[] images;
-
-    private Scrollbar scrollbar;
-
-    private void Awake()
-    {
-        scrollbar = GetComponent<Scrollbar>();
-    }
+    public Scrollbar scrollbar;
 
     private void Update()
     {
-        foreach (var image in images)
-        {
-            image.enabled = ShouldDisplay();
-        }
-
+        scrollbar.gameObject.SetActive(ShouldDisplay());
         transform.position = scarf.transform.position + positionOffset;
         scrollbar.size = scarf.stamina / scarf.maxStamina;
     }
