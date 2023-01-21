@@ -672,12 +672,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638cc95599594294a421c728c95c6c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tier: 0
   suits: []
   maxStamina: 10
   staminaThreshold: 3.8
   staminaReductionRate: 4
   staminaIncrementRate: 4
-  slowDamageMultiplier: 0.5
+  heatReductionMultiplier: 0.5
   stamina: 0
 --- !u!114 &419211972
 MonoBehaviour:
@@ -759,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60400e9075241f74a8c435950fee88d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTakenDelaySeconds: 0.3
+  damageRate: 1
   damagePercentage: 4
   deathEvent:
     m_PersistentCalls:

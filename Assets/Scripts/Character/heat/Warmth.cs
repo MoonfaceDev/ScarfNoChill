@@ -4,11 +4,10 @@ using UnityEngine.Events;
 
 public class Warmth : CharacterBehaviour
 {
-    public const int MaxWarmth = 100;
+    public const float MaxWarmth = 100;
 
-    public float damageTakenDelaySeconds;
+    public float damageRate;
     public int damagePercentage;
-
 
     public UnityEvent deathEvent;
 
@@ -24,13 +23,11 @@ public class Warmth : CharacterBehaviour
         base.Awake();
         heatReductionMultiplier = 1;
         heat = MaxWarmth;
-        StartCoroutine(ChillDown());
     }
 
-    private void TakeDamage()
+    private void Update()
     {
-        heat -= damagePercentage * heatReductionMultiplier;
-        CheckDeath();
+        heat -= damagePercentage * heatReductionMultiplier * damageRate * Time.time;
     }
 
     private void CheckDeath()
@@ -49,12 +46,4 @@ public class Warmth : CharacterBehaviour
             heatReductionMultiplier / slowDamageMultiplier_;
     }
 
-    private IEnumerator ChillDown()
-    {
-        while (Enabled)
-        {
-            yield return new WaitForSeconds(damageTakenDelaySeconds);
-            TakeDamage();
-        }
-    }
 }
