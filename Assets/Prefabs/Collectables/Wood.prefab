@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectType: Wood
+  onConsume:
+    m_PersistentCalls:
+      m_Calls: []
+  score: 5
 --- !u!212 &5145845473538516851
 SpriteRenderer:
   m_ObjectHideFlags: 0

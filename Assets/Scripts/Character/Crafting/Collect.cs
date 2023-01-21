@@ -6,11 +6,13 @@ public class Collect : CharacterBehaviour
     public float maximumDistance;
 
     private Inventory inventory;
+    private Score score;
 
     protected override void Awake()
     {
         base.Awake();
         inventory = GetComponent<Inventory>();
+        score = GetComponent<Score>();
     }
 
     private void Update()
@@ -30,6 +32,7 @@ public class Collect : CharacterBehaviour
     {
         inventory.storage[collectable.objectType]++;
         collectable.Consume();
+        score.score += collectable.score;
     }
 
     private bool ShouldCollect(Collectable collectable)
