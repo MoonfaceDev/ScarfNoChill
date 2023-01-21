@@ -4,7 +4,6 @@ public class CameraMovement : BaseComponent
 {
     public Rect worldBorder;
     public Vector3 targetPosition;
-    public float lerpSpeed = 3.0f;
 
     private Camera mainCamera;
 
@@ -20,19 +19,18 @@ public class CameraMovement : BaseComponent
     private void UpdatePosition()
     {
         var position = transform.position;
-        var next = Vector3.Lerp(position, targetPosition, lerpSpeed * Time.deltaTime);
-        if ((next.x - CameraWidth / 2 > worldBorder.xMin && next.x + CameraWidth / 2 < worldBorder.xMax) ||
-            (position.x < next.x && position.x - CameraWidth / 2 < worldBorder.xMin) ||
-            (position.x > next.x && position.x + CameraWidth / 2 > worldBorder.xMax))
+        if ((targetPosition.x - CameraWidth / 2 > worldBorder.xMin && targetPosition.x + CameraWidth / 2 < worldBorder.xMax) ||
+            (position.x < targetPosition.x && position.x - CameraWidth / 2 < worldBorder.xMin) ||
+            (position.x > targetPosition.x && position.x + CameraWidth / 2 > worldBorder.xMax))
         {
-            position += (next.x - position.x) * Vector3.right;
+            position += (targetPosition.x - position.x) * Vector3.right;
         }
 
-        if ((next.y - CameraHeight / 2 > worldBorder.yMin && next.y + CameraHeight / 2 < worldBorder.yMax) ||
-            (position.y < next.y && position.y - CameraHeight / 2 < worldBorder.yMin) ||
-            (position.y > next.y && position.y + CameraHeight / 2 > worldBorder.yMax))
+        if ((targetPosition.y - CameraHeight / 2 > worldBorder.yMin && targetPosition.y + CameraHeight / 2 < worldBorder.yMax) ||
+            (position.y < targetPosition.y && position.y - CameraHeight / 2 < worldBorder.yMin) ||
+            (position.y > targetPosition.y && position.y + CameraHeight / 2 > worldBorder.yMax))
         {
-            position += (next.y - position.y) * Vector3.up;
+            position += (targetPosition.y - position.y) * Vector3.up;
         }
 
         transform.position = position;

@@ -6,6 +6,9 @@ public class ObjectSpawner : BaseComponent
     public float size;
     public float interval;
     public Collectable objectPrefab;
+    public int spawnLimit;
+
+    private int currentLivingObjects;
 
     private void Awake()
     {
@@ -17,14 +20,16 @@ public class ObjectSpawner : BaseComponent
         while (true)
         {
             yield return new WaitForSeconds(interval);
-            Instantiate(objectPrefab, GetSpawnPosition(), Quaternion.identity);
+            if (currentLivingObjects >= spawnLimit) continue;
+            var clone = Instantiate(objectPrefab, GetSpawnPosition(), Quaternion.identity);
+            clone.onConsume.AddListener(() => currentLivingObjects--);
+            currentLivingObjects++;
         }
     }
 
     private Vector3 GetSpawnPosition()
     {
-        var center = transform.position.x;
-        return new Vector3(Random.Range(center - size / 2, center + size / 2), 0, 0);
+        return transform.position + Random.Range(- size / 2, size / 2) * Vector3.right;
     }
 
     private void OnDrawGizmos()
