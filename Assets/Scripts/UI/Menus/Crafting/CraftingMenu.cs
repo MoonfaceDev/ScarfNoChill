@@ -102,7 +102,22 @@ public class CraftingMenu : BaseComponent
     {
         foreach (var entry in recipeViews)
         {
-            entry.Value.UpdateData(craft.CanCraft(entry.Key));
+            var recipe = entry.Key;
+            var view = entry.Value;
+            
+            if (!craft.HasRequiredScore(recipe))
+            {
+                view.UpdateData(false, $"Required score is {recipe.scoreRequirement}");
+                continue;
+            }
+            
+            if (!craft.HasIngredients(recipe))
+            {
+                view.UpdateData(false, "Missing ingredients");
+                continue;
+            }
+
+            view.UpdateData(true, "");
         }
     }
 }

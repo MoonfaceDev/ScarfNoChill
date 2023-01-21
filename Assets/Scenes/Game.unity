@@ -355,10 +355,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 936118374}
   - {fileID: 473772778}
   - {fileID: 1616244058}
   - {fileID: 1557977745}
+  - {fileID: 936118374}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -82192,7 +82192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.972549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -82238,6 +82238,7 @@ MonoBehaviour:
   collectablePrefab: {fileID: 4760543190229374480, guid: a1dbf49bbddbd7f4387b4de5ed141956, type: 3}
   recipes:
   - recipe:
+      scoreRequirement: 10
       ingredients:
       - objectType: Wood
         amount: 1
@@ -82245,6 +82246,7 @@ MonoBehaviour:
     resultName: Torch
     resultIcon: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
   - recipe:
+      scoreRequirement: 30
       ingredients:
       - objectType: Wood
         amount: 2
