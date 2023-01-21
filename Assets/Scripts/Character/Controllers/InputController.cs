@@ -29,5 +29,9 @@ public class InputController : BaseController
         {
             scarf.Play(new Scarf.Context());
         }
+        else
+        {
+            scarf.Stop();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Scarf : PlayableBehaviour<Scarf.Context>
 {
@@ -25,7 +26,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     public float staminaReductionRate;
     public float staminaIncrementRate;
 
-    private float stamina;
+    [HideInInspector] public float stamina;
     private Walk walk;
     private static readonly int ScarfHash = Animator.StringToHash("scarf");
 
@@ -52,11 +53,16 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     {
         if (Active)
         {
-            stamina -= staminaReductionRate * Time.time;
+            stamina -= staminaReductionRate * Time.deltaTime;
+            if (stamina < 0)
+            {
+                stamina = 0;
+                Stop();
+            }
         }
         else
         {
-            stamina += staminaIncrementRate * Time.time;
+            stamina = Mathf.Min(stamina + staminaIncrementRate * Time.deltaTime, maxStamina);
         }
     }
 
