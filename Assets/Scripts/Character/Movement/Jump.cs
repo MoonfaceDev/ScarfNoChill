@@ -55,7 +55,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
         if (gainSpeed)
         {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
+            rigidbody.AddForce(transform.up * jumpSpeed);
         }
     }
 
