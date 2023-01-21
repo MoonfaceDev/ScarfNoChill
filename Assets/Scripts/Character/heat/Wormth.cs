@@ -8,7 +8,7 @@ public class Wormth : CharacterBehaviour
     public static int MaxWormth = 100;
 
     public float damageTakenDelaySeconds;
-    public int damagePrecentage;
+    public float damagePrecentage;
 
     
     public UnityEvent deathEvent;
@@ -18,7 +18,7 @@ public class Wormth : CharacterBehaviour
 
     private static readonly int DyingHash = Animator.StringToHash("dying");
 
-    private int maxDamageAmount;
+    private float slowDamageMultiplier;
 
     protected override void Awake()
     {
@@ -30,7 +30,7 @@ public class Wormth : CharacterBehaviour
 
     private void TakeDamage()
     {
-        heat -= damagePrecentage;
+        heat -= damagePrecentage * slowDamageMultiplier;
         CheckDeath();
     }
 
@@ -44,17 +44,17 @@ public class Wormth : CharacterBehaviour
         }
     }
 
-    public void SlowChill(bool startOrEnd, float slowDamageMultiplier)
+    public void SlowChill(bool startOrEnd, float slowDamageMultiplier_)
     {
-        damagePrecentage = startOrEnd ? (int) (damagePrecentage * slowDamageMultiplier) : maxDamageAmount;
+        slowDamageMultiplier = startOrEnd ? slowDamageMultiplier_ : 1;
     }
 
     private IEnumerator ChillDown()
     {
         while(Enabled)
         {
-            yield return new WaitForSeconds(damageTakenDelaySeconds);
             TakeDamage();
+            yield return new WaitForSeconds(damageTakenDelaySeconds);
         }
     }
 }

@@ -1,8 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Animations;
 
 public class Scarf : PlayableBehaviour<Scarf.Context>
 {
     public class Context {}
+
+    public class Tier
+    {
+        public int level;
+        public RuntimeAnimatorController suit;
+
+        public 
+    }
 
     public bool Active
     {
@@ -24,9 +33,8 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     public float staminaReductionRate;
     public float staminaIncrementRate;
 
-    [Range(0, 1)]
-    public float slowDamageMultiplier;
-
+    [HideInInspector]
+    public float slowDamageMultiplier = 0.5f;
 
     [HideInInspector] public float stamina;
     private Walk walk;
