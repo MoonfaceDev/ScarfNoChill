@@ -7,8 +7,8 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     private new Rigidbody2D rigidbody;
 
+    public float thrust;
     public float maxAccelerateSeconds;
-    public float jumpSpeed;
     public override bool Playing => Jumping;
 
     private static readonly int JumpingHash = Animator.StringToHash("jumping");
@@ -52,10 +52,13 @@ public class Jump : PlayableBehaviour<Jump.Context>
         
         if (Time.time - startTime > maxAccelerateSeconds)
             StopAccelerate();
+    }
 
+    private void FixedUpdate()
+    {
         if (gainSpeed)
         {
-            rigidbody.AddForce(transform.up * jumpSpeed);
+            rigidbody.AddForce(transform.up * thrust);
         }
     }
 
