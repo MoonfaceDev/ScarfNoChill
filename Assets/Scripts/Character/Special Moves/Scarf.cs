@@ -20,7 +20,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         {
             active = value;
             Animator.SetBool(ScarfHash, active);
-            wormth.SlowChill(active, slowDamageMultiplier);
+            warmth.SlowChill(active, slowDamageMultiplier);
         }
     }
 
@@ -38,7 +38,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 
     [HideInInspector] public float stamina;
     private Walk walk;
-    private Wormth wormth;
+    private Warmth warmth;
 
     private static readonly int ScarfHash = Animator.StringToHash("scarf");
 
@@ -46,7 +46,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     {
         base.Awake();
         walk = GetComponent<Walk>();
-        wormth = GetComponent<Wormth>();
+        warmth = GetComponent<Warmth>();
 
         stamina = maxStamina;
     }
