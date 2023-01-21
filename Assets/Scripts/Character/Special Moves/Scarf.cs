@@ -5,18 +5,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 {
     public class Context {}
 
-    public class Tier
-    {
-        public int level;
-        public RuntimeAnimatorController suit;
-
-        public Tier(RuntimeAnimatorController firstSuit)
-        {
-            this.level = 0;
-            suit = firstSuit;
-        }
-    }
-
+    public int tier; 
     public RuntimeAnimatorController[] suits;
 
 
@@ -27,7 +16,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         {
             active = value;
             Animator.SetBool(ScarfHash, active);
-            warmth.SlowChill(active, slowDamageMultiplier);
+            warmth.SlowChill(active, damageMultiplier);
         }
     }
 
@@ -41,7 +30,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     public float staminaIncrementRate;
 
     [Range(0, 1)]
-    public float slowDamageMultiplier;
+    public float damageMultiplier;
 
     [HideInInspector] public float stamina;
     private Walk walk;
@@ -52,6 +41,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     protected override void Awake()
     {
         base.Awake();
+        tier = 0;
         walk = GetComponent<Walk>();
         warmth = GetComponent<Warmth>();
 
@@ -91,5 +81,10 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     {
         Active = false;
         walk.Enabled = true;
+    }
+
+    public void AdvanceTier()
+    {
+        Character.Animator.runtimeAnimatorController = suits[++tier];
     }
 }
