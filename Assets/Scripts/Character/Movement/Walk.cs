@@ -46,13 +46,15 @@ public class Walk : PlayableBehaviour<Walk.Context>
     protected override void Execute(Context context)
     {
         Walking = true;
-        rigidbody.velocity = new Vector2(context.direction * speed, rigidbody.velocity.y);
-        transform.localRotation = GetRotation(context.direction);
+        Character.LookDirection = context.direction;
     }
 
-    private static Quaternion GetRotation(float direction)
+    private void FixedUpdate()
     {
-        return Quaternion.Euler(0, 90 * (1 - direction), 0);
+        if (Walking)
+        {
+            rigidbody.velocity = new Vector2(Character.LookDirection * speed, rigidbody.velocity.y);
+        }
     }
 
     public override void Stop()
