@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Character))]
 [RequireComponent(typeof(Animator))]
 public abstract class CharacterBehaviour : BaseComponent
 {
