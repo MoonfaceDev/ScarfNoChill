@@ -3,19 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Jump : PlayableBehaviour<Jump.Context>
 {
-    public class Context
-    {
-        public readonly float jumpSpeed;
-
-        public Context(float jumpSpeed)
-        {
-            this.jumpSpeed = jumpSpeed;
-        }
-    }
+    public class Context { }
 
     private new Rigidbody2D rigidbody;
 
     public float maxAccelerateSeconds;
+    public float jumpSpeed;
     public override bool Playing => Jumping;
 
     private static readonly int JumpingHash = Animator.StringToHash("jumping");
@@ -23,7 +16,6 @@ public class Jump : PlayableBehaviour<Jump.Context>
     private float startTime;
     private bool jumping;
     private bool gainSpeed;
-    private float jumpSpeed;
 
     public bool Jumping
     {
@@ -49,7 +41,6 @@ public class Jump : PlayableBehaviour<Jump.Context>
     protected override void Execute(Context context)
     {
         startTime = Time.time;
-        jumpSpeed = context.jumpSpeed;
         Jumping = true;
         gainSpeed = true;
     }
