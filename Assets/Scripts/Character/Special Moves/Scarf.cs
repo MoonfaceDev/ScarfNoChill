@@ -10,8 +10,15 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         public int level;
         public RuntimeAnimatorController suit;
 
-        public 
+        public Tier(RuntimeAnimatorController firstSuit)
+        {
+            this.level = 0;
+            suit = firstSuit;
+        }
     }
+
+    public RuntimeAnimatorController[] suits;
+
 
     public bool Active
     {
@@ -33,8 +40,8 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     public float staminaReductionRate;
     public float staminaIncrementRate;
 
-    [HideInInspector]
-    public float slowDamageMultiplier = 0.5f;
+    [Range(0, 1)]
+    public float slowDamageMultiplier;
 
     [HideInInspector] public float stamina;
     private Walk walk;

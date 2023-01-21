@@ -16,19 +16,19 @@ public class Warmth : CharacterBehaviour
 
     private static readonly int DyingHash = Animator.StringToHash("dying");
 
-    private int maxDamageAmount;
+    private float slowDamageMultiplier;
 
     protected override void Awake()
     {
         base.Awake();
-
+        slowDamageMultiplier = 1;
         heat = MaxWarmth;
-        StartCoroutine("ChillDown");
+        StartCoroutine(ChillDown());
     }
 
     private void TakeDamage()
     {
-        heat -= damagePercentage;
+        heat -= damagePercentage * slowDamageMultiplier;
         CheckDeath();
     }
 
@@ -42,9 +42,9 @@ public class Warmth : CharacterBehaviour
         }
     }
 
-    public void SlowChill(bool startOrEnd, float slowDamageMultiplier)
+    public void SlowChill(bool startOrEnd, float slowDamageMultiplier_)
     {
-        damagePercentage = startOrEnd ? (int)(damagePercentage * slowDamageMultiplier) : maxDamageAmount;
+        slowDamageMultiplier = startOrEnd ? slowDamageMultiplier_ : 1;
     }
 
     private IEnumerator ChillDown()

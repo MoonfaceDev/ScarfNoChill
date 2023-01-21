@@ -672,11 +672,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638cc95599594294a421c728c95c6c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suits: []
   maxStamina: 10
   staminaThreshold: 3.8
   staminaReductionRate: 4
   staminaIncrementRate: 4
-  slowDamageMultiplier: 0
+  slowDamageMultiplier: 0.5
   stamina: 0
 --- !u!114 &419211972
 MonoBehaviour:
