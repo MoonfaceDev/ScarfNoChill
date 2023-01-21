@@ -45,6 +45,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     protected override void Execute(Context context)
     {
         // TODO: reduce damage to the bar
+        walk.Stop();
         Active = true;
         walk.Enabled = false;
     }

@@ -40,7 +40,7 @@ public class Walk : PlayableBehaviour<Walk.Context>
 
     public override bool CanPlay(Context context)
     {
-        return context.direction != 0;
+        return base.CanPlay(context) && context.direction != 0;
     }
 
     protected override void Execute(Context context)
