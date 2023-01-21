@@ -9,6 +9,7 @@ public class CraftingRecipeView : BaseComponent
     public Transform ingredientsLayout;
     public GameObject ingredientPrefab;
     public TMP_Text resultLabel;
+    public TMP_Text errorLabel;
     public Button craftButton;
     public Image resultImage;
 
@@ -26,8 +27,9 @@ public class CraftingRecipeView : BaseComponent
         craftButton.onClick.AddListener(delegate { onCraft(); });
     }
 
-    public void UpdateData(bool canCraft)
+    public void UpdateData(bool canCraft, string error)
     {
         craftButton.interactable = canCraft;
+        errorLabel.text = error;
     }
 }
