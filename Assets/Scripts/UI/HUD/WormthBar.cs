@@ -10,6 +10,6 @@ public class WormthBar : MonoBehaviour
 
     private void Update()
     {
-        bar.size = wormth.heat / 100;
+        bar.size = wormth.heat / Wormth.MaxWormth;
     }
 }

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Wormth : CharacterBehaviour
 {
+    public static int MaxWormth = 100;
+
     public float damageTakenDelaySeconds;
-    public int damageAmount;
+    public int damagePrecentage;
 
-    [Range(0, 1)]
-    public float slowDamageMultiplier;
-
+    
     public UnityEvent deathEvent;
 
     [HideInInspector]
@@ -24,15 +24,13 @@ public class Wormth : CharacterBehaviour
     {
         base.Awake();
 
-        maxDamageAmount = damageAmount;
-
-        heat = 100;
+        heat = MaxWormth;
         StartCoroutine("ChillDown");
     }
 
     private void TakeDamage()
     {
-        heat -= damageAmount;
+        heat -= damagePrecentage;
         CheckDeath();
     }
 
@@ -46,9 +44,9 @@ public class Wormth : CharacterBehaviour
         }
     }
 
-    public void SlowChill(bool startOrEnd)
+    public void SlowChill(bool startOrEnd, float slowDamageMultiplier)
     {
-        damageAmount = startOrEnd ? (int) (damageAmount * slowDamageMultiplier) : maxDamageAmount;
+        damagePrecentage = startOrEnd ? (int) (damagePrecentage * slowDamageMultiplier) : maxDamageAmount;
     }
 
     private IEnumerator ChillDown()

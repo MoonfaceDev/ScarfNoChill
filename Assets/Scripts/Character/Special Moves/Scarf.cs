@@ -11,7 +11,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         {
             active = value;
             Animator.SetBool(ScarfHash, active);
-            wormth.SlowChill(active);
+            wormth.SlowChill(active, slowDamageMultiplier);
         }
     }
 
@@ -23,6 +23,10 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     public float staminaThreshold;
     public float staminaReductionRate;
     public float staminaIncrementRate;
+
+    [Range(0, 1)]
+    public float slowDamageMultiplier;
+
 
     [HideInInspector] public float stamina;
     private Walk walk;
