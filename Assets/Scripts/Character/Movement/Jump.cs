@@ -32,7 +32,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
         private set
         {
             jumping = value;
-            animator.SetBool(JumpingHash, value);
+            Animator.SetBool(JumpingHash, value);
         }
     }
 
@@ -43,11 +43,16 @@ public class Jump : PlayableBehaviour<Jump.Context>
         startedJump = false;
     }
 
+    private void Update()
+    {
+        if (Character.Grounded && jumping)
+            Stop();
+    }
+
 
     public override bool CanPlay(Context context)
     {
-        //check for grounded
-        return Enabled;
+        return Character.Grounded && Enabled;
     }
 
     public override void Stop()
@@ -76,7 +81,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
     {
         //check for max jump height
         if (Time.time - startTime > maxJumpTimeSeconds)
-            Stop();
+            return;
 
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
     }
