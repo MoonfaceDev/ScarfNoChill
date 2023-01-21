@@ -4,12 +4,14 @@ public class InputController : BaseController
 {
     private Walk walk;
     private Scarf scarf;
+    private Jump jump;
 
     protected override void Awake()
     {
         base.Awake();
         walk = GetComponent<Walk>();
         scarf = GetComponent<Scarf>();
+        jump = GetComponent<Jump>();
     }
 
     private void Update()
@@ -31,6 +33,14 @@ public class InputController : BaseController
         if (Input.GetButtonUp("Scarf"))
         {
             scarf.Stop();
+        }
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump.Play(new Jump.Context());
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            jump.StopAccelerate();
         }
     }
 }

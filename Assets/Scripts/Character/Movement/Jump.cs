@@ -3,18 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Jump : PlayableBehaviour<Jump.Context>
 {
-    public class Context
-    {
-        public readonly float jumpSpeed;
-
-        public Context(float jumpSpeed)
-        {
-            this.jumpSpeed = jumpSpeed;
-        }
-    }
+    public class Context { }
 
     private new Rigidbody2D rigidbody;
 
+    public float thrust;
     public float maxAccelerateSeconds;
     public override bool Playing => Jumping;
 
@@ -23,7 +16,6 @@ public class Jump : PlayableBehaviour<Jump.Context>
     private float startTime;
     private bool jumping;
     private bool gainSpeed;
-    private float jumpSpeed;
 
     public bool Jumping
     {
@@ -49,7 +41,6 @@ public class Jump : PlayableBehaviour<Jump.Context>
     protected override void Execute(Context context)
     {
         startTime = Time.time;
-        jumpSpeed = context.jumpSpeed;
         Jumping = true;
         gainSpeed = true;
     }
@@ -58,13 +49,16 @@ public class Jump : PlayableBehaviour<Jump.Context>
     {
         if (Character.Grounded && Jumping)
             Stop();
+        
+        if (Time.time - startTime > maxAccelerateSeconds)
+            StopAccelerate();
+    }
 
+    private void FixedUpdate()
+    {
         if (gainSpeed)
         {
-            if (Time.time - startTime > maxAccelerateSeconds)
-                return;
-
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
+            rigidbody.AddForce(transform.up * thrust);
         }
     }
 
