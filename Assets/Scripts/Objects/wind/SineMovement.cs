@@ -10,6 +10,8 @@ public class SineMovement : BaseComponent
     public bool randomPhase;
     public bool randomSpeed;
 
+    private float timer;
+
     private float angle;
 
     private void Awake()
@@ -23,6 +25,8 @@ public class SineMovement : BaseComponent
         {
             speedX = Random.Range(-1f, 1f);
         }
+
+        timer = 0;
     }
 
     void Update()
@@ -30,6 +34,8 @@ public class SineMovement : BaseComponent
         transform.Translate(transform.right * speedX * Time.deltaTime);
         transform.Translate(transform.up * speedY * angle * Time.deltaTime);
 
-        angle = Mathf.Sin(Time.fixedTime * amplitude + phase);
+        angle = Mathf.Sin(timer * amplitude + phase);
+
+        timer += Time.deltaTime;
     }
 }
