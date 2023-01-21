@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Character))]
 [RequireComponent(typeof(Animator))]
-public abstract class CharacterBehaviour : MonoBehaviour
+public abstract class CharacterBehaviour : BaseComponent
 {
-    protected Animator animator;
+    protected Animator Animator => Character.Animator;
+    protected Character Character { get; private set; }
 
     public bool Enabled
     {
@@ -28,6 +30,6 @@ public abstract class CharacterBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        Character = GetComponent<Character>();
     }
 }
