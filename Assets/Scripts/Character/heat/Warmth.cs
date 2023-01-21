@@ -1,20 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Wormth : CharacterBehaviour
+public class Warmth : CharacterBehaviour
 {
-    public static int MaxWormth = 100;
+    public const int MaxWarmth = 100;
 
     public float damageTakenDelaySeconds;
-    public int damagePrecentage;
+    public int damagePercentage;
 
-    
+
     public UnityEvent deathEvent;
 
-    [HideInInspector]
-    public float heat;
+    [HideInInspector] public float heat;
 
     private static readonly int DyingHash = Animator.StringToHash("dying");
 
@@ -24,13 +22,13 @@ public class Wormth : CharacterBehaviour
     {
         base.Awake();
 
-        heat = MaxWormth;
+        heat = MaxWarmth;
         StartCoroutine("ChillDown");
     }
 
     private void TakeDamage()
     {
-        heat -= damagePrecentage;
+        heat -= damagePercentage;
         CheckDeath();
     }
 
@@ -46,12 +44,12 @@ public class Wormth : CharacterBehaviour
 
     public void SlowChill(bool startOrEnd, float slowDamageMultiplier)
     {
-        damagePrecentage = startOrEnd ? (int) (damagePrecentage * slowDamageMultiplier) : maxDamageAmount;
+        damagePercentage = startOrEnd ? (int)(damagePercentage * slowDamageMultiplier) : maxDamageAmount;
     }
 
     private IEnumerator ChillDown()
     {
-        while(Enabled)
+        while (Enabled)
         {
             yield return new WaitForSeconds(damageTakenDelaySeconds);
             TakeDamage();
