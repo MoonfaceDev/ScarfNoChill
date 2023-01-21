@@ -6,10 +6,10 @@ public class CraftingIngredientView : BaseComponent
 {
     public class Data
     {
-        public readonly Craft.Recipe.Ingredient ingredient;
+        public readonly Recipe.Ingredient ingredient;
         public readonly Sprite icon;
 
-        public Data(Craft.Recipe.Ingredient ingredient, Sprite icon)
+        public Data(Recipe.Ingredient ingredient, Sprite icon)
         {
             this.ingredient = ingredient;
             this.icon = icon;
