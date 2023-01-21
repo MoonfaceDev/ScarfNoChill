@@ -12,6 +12,7 @@ public abstract class Recipe
     }
 
     public int scoreRequirement;
+    public int scoreBonus;
     public Ingredient[] ingredients;
 
     public abstract void Craft(GameObject player);
