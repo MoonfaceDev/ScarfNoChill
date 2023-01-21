@@ -18,7 +18,7 @@ public class WindColliderSpawner : BaseComponent
         {
             yield return new WaitForSeconds(0.17f);
 
-            GameObject instance = Instantiate(windCollider, transform.position, transform.rotation);
+            var instance = Instantiate(windCollider, transform.position, transform.rotation);
 
             //set a reference to the wind object
             instance.GetComponent<WindFlowBehavior>().wind = wind;

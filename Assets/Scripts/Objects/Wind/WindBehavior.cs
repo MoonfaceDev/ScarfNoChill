@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WindBehavior : BaseComponent
 {
-    public bool alreayHit;
+    [HideInInspector] [FormerlySerializedAs("alreayHit")] public bool alreadyHit;
     public float damage;
     public float scarfDamageMultiplier;
 
     private void Awake()
     {
-        alreayHit = false;
+        alreadyHit = false;
     }
 }

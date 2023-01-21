@@ -13,13 +13,7 @@ public class WindSpawner : PlayableBehaviour<WindSpawner.Context>
 
     public override bool Playing => Active;
 
-    private bool active;
-
-    private bool Active
-    {
-        get => active;
-        set => active = value;
-    }
+    private bool Active { get; set; }
 
     public override void Stop()
     {
@@ -36,10 +30,10 @@ public class WindSpawner : PlayableBehaviour<WindSpawner.Context>
     {
         while (Active)
         {
-            float delay = Random.Range(intervalRange.x, intervalRange.y);
+            var delay = Random.Range(intervalRange.x, intervalRange.y);
             yield return new WaitForSeconds(delay);
 
-            GameObject instance = Instantiate(wind, spawnPoint.position, transform.rotation);
+            var instance = Instantiate(wind, spawnPoint.position, transform.rotation);
             Destroy(instance, 15);
         }
     }

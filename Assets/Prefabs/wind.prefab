@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5450979613887549255}
-  - component: {fileID: 5450979613887549252}
   - component: {fileID: 5450979613887549254}
   - component: {fileID: 5450979613887549257}
   m_Layer: 0
@@ -37,60 +36,8 @@ Transform:
   - {fileID: 5450979615124639434}
   - {fileID: 5450979615320208359}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5450979613887549252
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5450979613887549253}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 666602368, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.2, y: 2.2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &5450979613887549254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927bf6bad82c1824a99f2ed0feb5941c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alreayHit: 0
+  alreadyHit: 0
   damage: 30
   scarfDamageMultiplier: 0.1
 --- !u!1 &5450979613991394652
@@ -221,7 +168,7 @@ TrailRenderer:
       serializedVersion: 2
       key0: {r: 0.3230242, g: 0.53705573, b: 0.5754717, a: 1}
       key1: {r: 0.31216627, g: 0.5373935, b: 0.5754717, a: 0.5686275}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.5019608}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -237,7 +184,7 @@ TrailRenderer:
       ctime7: 0
       atime0: 0
       atime1: 33731
-      atime2: 60716
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -452,7 +399,7 @@ TrailRenderer:
       serializedVersion: 2
       key0: {r: 0.3230242, g: 0.53705573, b: 0.5754717, a: 1}
       key1: {r: 0.31216627, g: 0.5373935, b: 0.5754717, a: 0.5686275}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.5019608}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -468,7 +415,7 @@ TrailRenderer:
       ctime7: 0
       atime0: 0
       atime1: 33731
-      atime2: 60716
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -683,7 +630,7 @@ TrailRenderer:
       serializedVersion: 2
       key0: {r: 0.3230242, g: 0.53705573, b: 0.5754717, a: 1}
       key1: {r: 0.31216627, g: 0.5373935, b: 0.5754717, a: 0.5686275}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.5019608}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -699,7 +646,7 @@ TrailRenderer:
       ctime7: 0
       atime0: 0
       atime1: 33731
-      atime2: 60716
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -817,7 +764,7 @@ TrailRenderer:
       serializedVersion: 2
       key0: {r: 0.3230242, g: 0.53705573, b: 0.5754717, a: 1}
       key1: {r: 0.31216627, g: 0.5373935, b: 0.5754717, a: 0.5686275}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.5019608}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -833,7 +780,7 @@ TrailRenderer:
       ctime7: 0
       atime0: 0
       atime1: 33731
-      atime2: 60716
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -1242,7 +1189,7 @@ TrailRenderer:
       serializedVersion: 2
       key0: {r: 0.3230242, g: 0.53705573, b: 0.5754717, a: 1}
       key1: {r: 0.31216627, g: 0.5373935, b: 0.5754717, a: 0.5686275}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0.5019608}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1258,7 +1205,7 @@ TrailRenderer:
       ctime7: 0
       atime0: 0
       atime1: 33731
-      atime2: 60716
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0

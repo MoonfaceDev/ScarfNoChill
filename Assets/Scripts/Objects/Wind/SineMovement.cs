@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SineMovement : BaseComponent
@@ -18,7 +16,7 @@ public class SineMovement : BaseComponent
     {
         if (randomPhase)
         {
-            phase = Random.Range(-5 , 5);
+            phase = Random.Range(-5, 5);
         }
 
         if (randomSpeed)
@@ -29,7 +27,7 @@ public class SineMovement : BaseComponent
         timer = 0;
     }
 
-    void Update()
+    private void Update()
     {
         transform.Translate(transform.right * speedX * Time.deltaTime);
         transform.Translate(transform.up * speedY * angle * Time.deltaTime);
