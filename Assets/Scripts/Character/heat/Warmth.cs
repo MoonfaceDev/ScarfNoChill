@@ -7,7 +7,6 @@ public class Warmth : CharacterBehaviour
     public const float MaxWarmth = 100;
 
     public float damageRate;
-    public int damagePercentage;
 
     public UnityEvent deathEvent;
 
@@ -27,7 +26,10 @@ public class Warmth : CharacterBehaviour
 
     private void Update()
     {
-        heat -= damagePercentage * heatReductionMultiplier * damageRate * Time.deltaTime;
+        heat -= heatReductionMultiplier * damageRate * Time.deltaTime;
+
+        if (heat <= 0)
+            CheckDeath();
     }
 
     private void CheckDeath()
@@ -40,10 +42,14 @@ public class Warmth : CharacterBehaviour
         }
     }
 
-    public void SlowChill(bool startOrEnd, float slowDamageMultiplier_)
+    public void ChangeDamageRate(float newDamageMultiplier)
     {
-        heatReductionMultiplier = startOrEnd ? heatReductionMultiplier * slowDamageMultiplier_ : 
-            heatReductionMultiplier / slowDamageMultiplier_;
+        heatReductionMultiplier = heatReductionMultiplier * newDamageMultiplier; 
+    }
+
+    public void RestoreDamageRate(float newDamageMultiplier)
+    {
+        heatReductionMultiplier = heatReductionMultiplier / newDamageMultiplier;
     }
 
 }

@@ -16,7 +16,11 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
         {
             active = value;
             Animator.SetBool(ScarfHash, active);
-            warmth.SlowChill(active, heatReductionMultiplier);
+
+            if (value)
+                warmth.ChangeDamageRate(heatReductionMultiplier);
+            else
+                warmth.RestoreDamageRate(heatReductionMultiplier);
         }
     }
 
