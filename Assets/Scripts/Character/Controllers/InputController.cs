@@ -24,12 +24,11 @@ public class InputController : BaseController
             walk.Stop();
         }
 
-        var scarfButton = Input.GetButton("Scarf");
-        if (scarfButton)
+        if (Input.GetButtonDown("Scarf"))
         {
             scarf.Play(new Scarf.Context());
         }
-        else
+        if (Input.GetButtonUp("Scarf"))
         {
             scarf.Stop();
         }
