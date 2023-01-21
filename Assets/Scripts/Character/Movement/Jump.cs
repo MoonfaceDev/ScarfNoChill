@@ -47,7 +47,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     private void Update()
     {
-        if (Character.Grounded && Jumping)
+        if (Character.Grounded && Jumping && !gainSpeed)
             Stop();
         
         if (Time.time - startTime > maxAccelerateSeconds)
