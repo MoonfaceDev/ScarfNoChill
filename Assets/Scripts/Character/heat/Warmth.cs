@@ -12,6 +12,7 @@ public class Warmth : CharacterBehaviour
 
     public UnityEvent deathEvent;
 
+    [HideInInspector]
     public float heat;
 
     private static readonly int DyingHash = Animator.StringToHash("dying");
