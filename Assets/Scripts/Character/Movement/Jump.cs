@@ -49,12 +49,12 @@ public class Jump : PlayableBehaviour<Jump.Context>
     {
         if (Character.Grounded && Jumping)
             Stop();
+        
+        if (Time.time - startTime > maxAccelerateSeconds)
+            StopAccelerate();
 
         if (gainSpeed)
         {
-            if (Time.time - startTime > maxAccelerateSeconds)
-                return;
-
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
         }
     }
