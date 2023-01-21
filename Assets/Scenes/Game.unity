@@ -8933,17 +8933,24 @@ MonoBehaviour:
   craft: {fileID: 419211973}
   collectables:
   - objectType: Wood
-    icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    icon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
   collectablesLayout: {fileID: 104416712}
   collectablePrefab: {fileID: 4760543190229374480, guid: a1dbf49bbddbd7f4387b4de5ed141956, type: 3}
   recipes:
   - recipe:
       ingredients:
       - objectType: Wood
-        amount: 2
+        amount: 1
       resultPrefab: {fileID: 8047041059204152693, guid: ac2a75855a1197b4b806af152f7e67af, type: 3}
     resultName: Torch
     resultIcon: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
+  - recipe:
+      ingredients:
+      - objectType: Wood
+        amount: 2
+      resultPrefab: {fileID: 8047041059204152693, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
+    resultName: Campfire
+    resultIcon: {fileID: 866272687, guid: 7658d040f390bb044ad0aea9dd846728, type: 3}
   recipesLayout: {fileID: 1886610691}
   recipePrefab: {fileID: 8073404020077747707, guid: 04c5d35b724111041a0b8794de44eada, type: 3}
 --- !u!1 &981313772
