@@ -485,7 +485,6 @@ GameObject:
   - component: {fileID: 419211968}
   - component: {fileID: 419211967}
   - component: {fileID: 419211966}
-  - component: {fileID: 419211977}
   - component: {fileID: 419211972}
   - component: {fileID: 419211976}
   - component: {fileID: 419211965}
@@ -494,6 +493,7 @@ GameObject:
   - component: {fileID: 419211975}
   - component: {fileID: 419211974}
   - component: {fileID: 419211973}
+  - component: {fileID: 419211977}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -674,7 +674,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tier: 0
-  suits: []
+  suits:
+  - {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
   maxStamina: 10
   staminaThreshold: 3.8
   staminaReductionRate: 4
@@ -747,6 +748,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 160
   maxAccelerateSeconds: 0.2
+--- !u!114 &419211977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419211963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60400e9075241f74a8c435950fee88d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageRate: 5
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  heat: 0
 --- !u!1 &429953687
 GameObject:
   m_ObjectHideFlags: 0
