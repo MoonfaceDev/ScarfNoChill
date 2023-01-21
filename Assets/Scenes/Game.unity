@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 419211968}
   - component: {fileID: 419211967}
   - component: {fileID: 419211966}
+  - component: {fileID: 419211977}
   - component: {fileID: 419211972}
   - component: {fileID: 419211976}
   - component: {fileID: 419211965}
@@ -744,6 +745,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 160
   maxAccelerateSeconds: 0.2
+--- !u!114 &419211977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419211963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60400e9075241f74a8c435950fee88d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTakenDelaySeconds: 1
+  damageAmount: 10
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  heat: 0
 --- !u!1 &464359821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,8 +1178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.43999863}
+  m_SizeDelta: {x: 0, y: -4.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699820967
 MonoBehaviour:
@@ -1175,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.2901961, g: 0.16470589, b: 0.050980397, a: 1}
+  m_Color: {r: 1, g: 0.21161026, b: 0.042452812, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15612,7 +15631,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 192, y: 192}
+  m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1017836768
 MonoBehaviour:
@@ -16480,7 +16499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1616244058}
-  - component: {fileID: 1616244059}
+  - component: {fileID: 1616244060}
   m_Layer: 5
   m_Name: Heat Bar
   m_TagString: Untagged
@@ -16506,10 +16525,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -143.51}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -417}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1616244059
+--- !u!114 &1616244060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16518,12 +16537,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1616244057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fccf43cad0ab44eda00120faf0ee20a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9450665cb8180604ba378181764ce590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scarf: {fileID: 419211971}
-  positionOffset: {x: 0, y: -0.5, z: 0}
-  scrollbar: {fileID: 1846216296}
+  wormth: {fileID: 419211977}
+  bar: {fileID: 1846216296}
 --- !u!1 &1797004480
 GameObject:
   m_ObjectHideFlags: 0
@@ -16634,8 +16652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -78, y: -168}
+  m_AnchoredPosition: {x: 0.19000244, y: 0}
+  m_SizeDelta: {x: -198.55, y: -378.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1846216293
 GameObject:
@@ -16676,7 +16694,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 192, y: 192}
+  m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1846216296
 MonoBehaviour:
@@ -16722,7 +16740,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 699820966}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.357
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
