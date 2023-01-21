@@ -1122,9 +1122,10 @@ GameObject:
   - component: {fileID: 504610379}
   - component: {fileID: 504610380}
   - component: {fileID: 504610381}
-  - component: {fileID: 504610382}
+  - component: {fileID: 504610383}
+  - component: {fileID: 504610384}
   m_Layer: 0
-  m_Name: wind thread
+  m_Name: wind flow
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1180,7 +1181,20 @@ CircleCollider2D:
   m_Offset: {x: -0.46, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &504610382
+--- !u!114 &504610383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504610378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02282e097a2364d429c8a2f318d4b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 1088176072}
+--- !u!114 &504610384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1193,6 +1207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windCollider: {fileID: 5835384085818315535, guid: b944e61a979a85244b81953ac3515ac5, type: 3}
+  wind: {fileID: 1088176072}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,9 +1396,10 @@ GameObject:
   - component: {fileID: 557171803}
   - component: {fileID: 557171804}
   - component: {fileID: 557171805}
-  - component: {fileID: 557171806}
+  - component: {fileID: 557171807}
+  - component: {fileID: 557171808}
   m_Layer: 0
-  m_Name: wind thread
+  m_Name: wind flow
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1439,7 +1455,20 @@ CircleCollider2D:
   m_Offset: {x: -0.46, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &557171806
+--- !u!114 &557171807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557171802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02282e097a2364d429c8a2f318d4b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 1088176072}
+--- !u!114 &557171808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1452,6 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windCollider: {fileID: 5835384085818315535, guid: b944e61a979a85244b81953ac3515ac5, type: 3}
+  wind: {fileID: 1088176072}
 --- !u!1 &616395419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,9 +1703,10 @@ GameObject:
   - component: {fileID: 669249354}
   - component: {fileID: 669249355}
   - component: {fileID: 669249356}
-  - component: {fileID: 669249357}
+  - component: {fileID: 669249358}
+  - component: {fileID: 669249359}
   m_Layer: 0
-  m_Name: wind thread
+  m_Name: wind flow
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1731,7 +1762,20 @@ CircleCollider2D:
   m_Offset: {x: -0.46, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &669249357
+--- !u!114 &669249358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669249353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02282e097a2364d429c8a2f318d4b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 1088176072}
+--- !u!114 &669249359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1744,6 +1788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windCollider: {fileID: 5835384085818315535, guid: b944e61a979a85244b81953ac3515ac5, type: 3}
+  wind: {fileID: 1088176072}
 --- !u!1 &699820965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,9 +1876,10 @@ GameObject:
   - component: {fileID: 712737638}
   - component: {fileID: 712737639}
   - component: {fileID: 712737640}
-  - component: {fileID: 712737641}
+  - component: {fileID: 712737642}
+  - component: {fileID: 712737643}
   m_Layer: 0
-  m_Name: wind thread
+  m_Name: wind flow
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1889,7 +1935,20 @@ CircleCollider2D:
   m_Offset: {x: -0.46, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &712737641
+--- !u!114 &712737642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712737637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02282e097a2364d429c8a2f318d4b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 1088176072}
+--- !u!114 &712737643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1902,6 +1961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windCollider: {fileID: 5835384085818315535, guid: b944e61a979a85244b81953ac3515ac5, type: 3}
+  wind: {fileID: 1088176072}
 --- !u!1 &723420533
 GameObject:
   m_ObjectHideFlags: 0
@@ -9934,6 +9994,7 @@ GameObject:
   - component: {fileID: 1088176070}
   - component: {fileID: 1088176069}
   - component: {fileID: 1088176071}
+  - component: {fileID: 1088176072}
   m_Layer: 0
   m_Name: wind
   m_TagString: Untagged
@@ -10031,6 +10092,21 @@ MonoBehaviour:
   phase: 0
   randomPhase: 0
   randomSpeed: 0
+--- !u!114 &1088176072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088176068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927bf6bad82c1824a99f2ed0feb5941c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alreayHit: 0
+  damage: 30
+  scarfDamageMultiplier: 0.1
 --- !u!1 &1240216798
 GameObject:
   m_ObjectHideFlags: 0
@@ -10513,9 +10589,10 @@ GameObject:
   - component: {fileID: 1498265901}
   - component: {fileID: 1498265902}
   - component: {fileID: 1498265903}
-  - component: {fileID: 1498265904}
+  - component: {fileID: 1498265905}
+  - component: {fileID: 1498265906}
   m_Layer: 0
-  m_Name: wind thread
+  m_Name: wind flow
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -10571,7 +10648,20 @@ CircleCollider2D:
   m_Offset: {x: -0.46, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1498265904
+--- !u!114 &1498265905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498265900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02282e097a2364d429c8a2f318d4b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 1088176072}
+--- !u!114 &1498265906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10584,6 +10674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windCollider: {fileID: 5835384085818315535, guid: b944e61a979a85244b81953ac3515ac5, type: 3}
+  wind: {fileID: 1088176072}
 --- !u!1 &1503447077
 GameObject:
   m_ObjectHideFlags: 0

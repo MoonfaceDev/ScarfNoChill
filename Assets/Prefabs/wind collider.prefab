@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6731544076179177692}
   - component: {fileID: 138731257368151822}
   - component: {fileID: 4976537435518011793}
+  - component: {fileID: 4258605573071800833}
   m_Layer: 0
   m_Name: wind collider
   m_TagString: wind
@@ -101,3 +102,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4258605573071800833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835384085818315535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02282e097a2364d429c8a2f318d4b3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 0}

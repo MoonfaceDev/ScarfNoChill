@@ -5,19 +5,24 @@ using UnityEngine;
 public class WindColliderSpawner : BaseComponent
 {
     public GameObject windCollider;
+    public WindBehavior wind;
 
     private void Awake()
     {
-        StartCoroutine(SpawnLoop());
+        StartCoroutine(SpawnColliders());
     }
 
-    private IEnumerator SpawnLoop()
+    private IEnumerator SpawnColliders()
     {
         while (enabled)
         {
             yield return new WaitForSeconds(0.17f);
+
             GameObject instance = Instantiate(windCollider, transform.position, transform.rotation);
-            Destroy(instance, 1f);
+
+            //set a reference to the wind object
+            instance.GetComponent<WindFlowBehavior>().wind = wind;
+            Destroy(instance, 2f);
         }
     }
 }
