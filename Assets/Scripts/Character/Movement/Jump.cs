@@ -13,7 +13,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
         }
     }
 
-    private Rigidbody2D rb;
+    private new Rigidbody2D rigidbody2D;
 
     public float maxJumpTimeSeconds;
     public override bool Playing => Jumping;
@@ -22,9 +22,8 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     private float startTime;
     private bool jumping;
-
-    //helps determine when the first jump call was made
-    private bool startedJump;
+    private bool gainSpeed;
+    private float jumpSpeed;
 
     public bool Jumping
     {
@@ -39,14 +38,21 @@ public class Jump : PlayableBehaviour<Jump.Context>
     protected override void Awake()
     {
         base.Awake();
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        startedJump = false;
+        rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (Character.Grounded && jumping)
             Stop();
+
+        if (gainSpeed)
+        {
+            if (Time.time - startTime > maxJumpTimeSeconds)
+                return;
+
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpSpeed);
+        }
     }
 
 
@@ -57,32 +63,20 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     public override void Stop()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
         jumping = false;
-        startedJump = false;
     }
 
     protected override void Execute(Context context)
     {
-        if (startedJump)
-        {
-            startTime = Time.time;
-            ContinueJump(context.jumpSpeed);
-        }
-        else
-        {
-            startedJump = true;
-            jumping = true;
-        }
+        startTime = Time.time;
+        jumpSpeed = context.jumpSpeed;
+        jumping = true;
+        gainSpeed = true;
     }
 
-    //called each frame while holding button
-    public void ContinueJump(float jumpSpeed)
+    public void StopAccelerate()
     {
-        //check for max jump height
-        if (Time.time - startTime > maxJumpTimeSeconds)
-            return;
-
-        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        gainSpeed = false;
     }
 }
