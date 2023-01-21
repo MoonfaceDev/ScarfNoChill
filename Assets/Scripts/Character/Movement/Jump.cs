@@ -15,7 +15,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     private new Rigidbody2D rigidbody;
 
-    public float maxJumpTimeSeconds;
+    public float maxAccelerateSeconds;
     public override bool Playing => Jumping;
 
     private static readonly int JumpingHash = Animator.StringToHash("jumping");
@@ -23,7 +23,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
     private float startTime;
     private bool jumping;
     private bool gainSpeed;
-    private readonly float jumpSpeed;
+    private float jumpSpeed;
 
     public bool Jumping
     {
@@ -41,38 +41,37 @@ public class Jump : PlayableBehaviour<Jump.Context>
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {
-        if (Character.Grounded && jumping)
-            Stop();
-
-        if (gainSpeed)
-        {
-            if (Time.time - startTime > maxJumpTimeSeconds)
-                return;
-
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
-        }
-    }
-
-
     public override bool CanPlay(Context context)
     {
-        return Character.Grounded && Enabled;
-    }
-
-    public override void Stop()
-    {
-        rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
-        jumping = false;
+        return Character.Grounded && base.CanPlay(context);
     }
 
     protected override void Execute(Context context)
     {
         startTime = Time.time;
         jumpSpeed = context.jumpSpeed;
-        jumping = true;
+        Jumping = true;
         gainSpeed = true;
+    }
+
+    private void Update()
+    {
+        if (Character.Grounded && Jumping)
+            Stop();
+
+        if (gainSpeed)
+        {
+            if (Time.time - startTime > maxAccelerateSeconds)
+                return;
+
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSpeed);
+        }
+    }
+
+    public override void Stop()
+    {
+        rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
+        Jumping = false;
     }
 
     public void StopAccelerate()
