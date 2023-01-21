@@ -18,9 +18,9 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
             Animator.SetBool(ScarfHash, active);
 
             if (value)
-                warmth.ChangeDamageRate(heatReductionMultiplier);
+                warmth.damageRate *= heatReductionMultiplier;
             else
-                warmth.RestoreDamageRate(heatReductionMultiplier);
+                warmth.damageRate /= heatReductionMultiplier;
         }
     }
 

@@ -8,6 +8,6 @@ public class WarmthBar : MonoBehaviour
 
     private void Update()
     {
-        bar.size = warmth.heat / Warmth.MaxWarmth;
+        bar.size = warmth.warmth / Warmth.MaxWarmth;
     }
 }
