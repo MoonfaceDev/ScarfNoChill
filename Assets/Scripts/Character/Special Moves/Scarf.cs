@@ -18,9 +18,13 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
             Animator.SetBool(ScarfHash, active);
 
             if (value)
+            {
                 warmth.damageRate *= heatReductionMultiplier;
+            }
             else
+            {
                 warmth.damageRate /= heatReductionMultiplier;
+            }
         }
     }
 
@@ -83,6 +87,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 
     public override void Stop()
     {
+        if (!Active) return;
         Active = false;
         walk.Enabled = true;
     }
