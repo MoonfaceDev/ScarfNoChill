@@ -6,7 +6,7 @@ public class Warmth : CharacterBehaviour
 {
     public const int MaxWarmth = 100;
 
-    public float damageTakenDelaySeconds;
+    public float damageInterval;
     public int damagePercentage;
 
 
