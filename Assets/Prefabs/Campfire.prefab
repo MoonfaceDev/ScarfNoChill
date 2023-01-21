@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8047041059204152694}
   - component: {fileID: 4160003913883704157}
   m_Layer: 0
-  m_Name: Torch
+  m_Name: Campfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
+  m_Sprite: {fileID: 866272687, guid: 7658d040f390bb044ad0aea9dd846728, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 8047041059204152693}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c9a8526e6f9cf8e4ea2cdc09c10a1f42, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7a4808d4a03a67d4197bf71a2567732b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

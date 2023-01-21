@@ -8537,7 +8537,7 @@ MonoBehaviour:
         amount: 2
       resultPrefab: {fileID: 8047041059204152693, guid: ac2a75855a1197b4b806af152f7e67af, type: 3}
     resultName: Torch
-    resultIcon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    resultIcon: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
   recipesLayout: {fileID: 1886610691}
   recipePrefab: {fileID: 8073404020077747707, guid: 04c5d35b724111041a0b8794de44eada, type: 3}
 --- !u!1 &981313772
