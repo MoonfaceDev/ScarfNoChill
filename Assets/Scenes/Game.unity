@@ -5746,6 +5746,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scarf: {fileID: 419211971}
   positionOffset: {x: 0, y: 2, z: 0}
+  images:
+  - {fileID: 1580475280}
+  - {fileID: 1018441621}
+  - {fileID: 1972771739}
+  - {fileID: 1917577372}
 --- !u!1 &1614920740
 GameObject:
   m_ObjectHideFlags: 0
