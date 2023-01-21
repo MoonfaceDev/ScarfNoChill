@@ -676,6 +676,7 @@ MonoBehaviour:
   staminaThreshold: 3.8
   staminaReductionRate: 4
   staminaIncrementRate: 4
+  slowDamageMultiplier: 0
   stamina: 0
 --- !u!114 &419211972
 MonoBehaviour:
@@ -758,8 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTakenDelaySeconds: 0.3
-  damageAmount: 4
-  slowDamageMultiplier: 0.5
+  damagePercentage: 4
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -16541,7 +16541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9450665cb8180604ba378181764ce590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wormth: {fileID: 419211977}
+  warmth: {fileID: 419211977}
   bar: {fileID: 1846216296}
 --- !u!1 &1797004480
 GameObject:
