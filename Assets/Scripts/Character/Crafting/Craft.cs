@@ -10,21 +10,6 @@ public class CannotCraftException : Exception
 [RequireComponent(typeof(Inventory))]
 public class Craft : CharacterBehaviour
 {
-    [Serializable]
-    public class Recipe
-    {
-        [Serializable]
-        public class Ingredient
-        {
-            public string objectType;
-            public int amount;
-        }
-
-        public int scoreRequirement;
-        public Ingredient[] ingredients;
-        public GameObject resultPrefab;
-    }
-
     private Inventory inventory;
     private Score score;
 
@@ -37,7 +22,7 @@ public class Craft : CharacterBehaviour
 
     public bool HasIngredients(Recipe recipe)
     {
-        return recipe.ingredients.Any(ingredient =>
+        return recipe.ingredients.All(ingredient =>
             inventory.storage[ingredient.objectType] >= ingredient.amount
         );
     }
@@ -53,9 +38,8 @@ public class Craft : CharacterBehaviour
         {
             throw new CannotCraftException();
         }
-
         ConsumeIngredients(recipe.ingredients);
-        Instantiate(recipe.resultPrefab, transform.position, Quaternion.identity);
+        recipe.Craft(gameObject);
     }
 
     private void ConsumeIngredients(IEnumerable<Recipe.Ingredient> ingredients)

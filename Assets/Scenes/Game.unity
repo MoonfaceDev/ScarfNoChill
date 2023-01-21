@@ -784,6 +784,8 @@ MonoBehaviour:
   tier: 0
   suits:
   - {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
+  - {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
+  - {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
   maxStamina: 10
   staminaThreshold: 3.8
   staminaReductionRate: 4
@@ -53373,12 +53375,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 419211975}
   craft: {fileID: 419211973}
+  scarf: {fileID: 419211971}
   collectables:
   - objectType: Wood
     icon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
   collectablesLayout: {fileID: 104416712}
   collectablePrefab: {fileID: 4760543190229374480, guid: a1dbf49bbddbd7f4387b4de5ed141956, type: 3}
-  recipes:
+  spawnRecipes:
   - recipe:
       scoreRequirement: 10
       ingredients:
@@ -53395,6 +53398,51 @@ MonoBehaviour:
       resultPrefab: {fileID: 8047041059204152693, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
     resultName: Campfire
     resultIcon: {fileID: 866272687, guid: 7658d040f390bb044ad0aea9dd846728, type: 3}
+  spawnerRecipes:
+  - recipe:
+      scoreRequirement: 0
+      ingredients:
+      - objectType: Wood
+        amount: 1
+      objectType: Wood
+      index: 0
+    resultName: Wood Upgrade
+    resultIcon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
+  - recipe:
+      scoreRequirement: 5
+      ingredients:
+      - objectType: Wood
+        amount: 2
+      objectType: Wood
+      index: 1
+    resultName: Wood Upgrade 2
+    resultIcon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
+  scarfRecipes:
+  - recipe:
+      scoreRequirement: 50
+      ingredients:
+      - objectType: Wood
+        amount: 10
+      index: 0
+    resultName: Scarf Upgrade
+    resultIcon: {fileID: 1609114715, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+  - recipe:
+      scoreRequirement: 100
+      ingredients:
+      - objectType: Wood
+        amount: 20
+      index: 1
+    resultName: Scarf Upgrade 2
+    resultIcon: {fileID: 1609114715, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+  bootsRecipe:
+    recipe:
+      scoreRequirement: 0
+      ingredients:
+      - objectType: Wood
+        amount: 5
+      multiplier: 2
+    resultName: Boots
+    resultIcon: {fileID: 173644818, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
   recipesLayout: {fileID: 1886610691}
   recipePrefab: {fileID: 8073404020077747707, guid: 04c5d35b724111041a0b8794de44eada, type: 3}
 --- !u!1 &960294011
@@ -53491,6 +53539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 981313774}
   - component: {fileID: 981313773}
+  - component: {fileID: 981313775}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -53531,6 +53580,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &981313775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981313772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cddcf39fd304f7e8cd5f99b95abb9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftingMenu: {fileID: 936118377}
 --- !u!1 &1001176735
 GameObject:
   m_ObjectHideFlags: 0
@@ -55182,7 +55244,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00013634173}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1886610692
 MonoBehaviour:
