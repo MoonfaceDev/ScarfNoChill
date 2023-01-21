@@ -26,6 +26,6 @@ public class Character : BaseComponent
 
     private void Update()
     {
-        Grounded = Physics2D.Raycast(transform.position, Vector3.down, 0.01f, groundLayer);
+        Grounded = Physics2D.Raycast(transform.position, Vector3.down, 0.05f, groundLayer);
     }
 }
