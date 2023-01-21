@@ -14,7 +14,6 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
         }
     }
 
-
     public override bool Playing => Active;
     private bool active;
 
@@ -28,6 +27,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     public float attackRange;
     public float snowballSpeed;
 
+    public GameObject spawnPoint;
     public GameObject aimObject;
     public GameObject snowball;
 
@@ -41,26 +41,25 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
 
     protected override void Execute(Context context)
     {
-        throw new System.NotImplementedException();
+        Active = true;
+        StartCoroutine(ThrowSnowballs(context.player.transform));
     }
 
-    private IEnumerator ThrowSnowballs()
+    private IEnumerator ThrowSnowballs(Transform playerPos)
     { 
         while (Active)
         {
             float randomInterval = Random.Range(attackIntervalSecondsRange.x, attackIntervalSecondsRange.y);
             yield return new WaitForSeconds(randomInterval);
-            ThrowSnowball();
+
+            //aim to target
+            aimObject.transform.right = playerPos.position - transform.position;
+            Instantiate(snowball, spawnPoint.transform.position, aimObject.transform.rotation);
         }
-    }
-
-    private void ThrowSnowball()
-    {
-
     }
 
     public override void Stop()
     {
-        ;
+        Active = false;
     }
 }
