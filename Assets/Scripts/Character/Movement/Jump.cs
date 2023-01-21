@@ -5,7 +5,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
 {
     public class Context
     {
-        public float jumpSpeed;
+        public readonly float jumpSpeed;
 
         public Context(float jumpSpeed)
         {
@@ -43,7 +43,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     public override bool CanPlay(Context context)
     {
-        return Character.Grounded && base.CanPlay(context);
+        return base.CanPlay(context) && Character.Grounded;
     }
 
     protected override void Execute(Context context)
