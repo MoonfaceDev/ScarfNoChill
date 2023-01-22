@@ -24,7 +24,8 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
         set => active = value;
     }
 
-    public Vector2 attackIntervalSecondsRange;
+    public float attackIntervalSeconds;
+    public float attackCooldown;
     public float attackRange;
     public float snowballSpeed;
     public float damage;
@@ -67,8 +68,21 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
         {
             Character.Animator.SetBool(throwingHash, true);
 
-            float randomInterval = Random.Range(attackIntervalSecondsRange.x, attackIntervalSecondsRange.y);
-            yield return new WaitForSeconds(randomInterval);
+            Vector3 playerMiddle = new Vector3(context.player.transform.position.x, context.player.transform.position.y + 1, context.player.transform.position.z);
+            int dir = 1; 
+
+            if (playerMiddle.x > transform.position.x)
+            {
+                dir = 1;
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
+                dir = 0;
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            }
+
+            yield return new WaitForSeconds(attackIntervalSeconds);
 
             Character.Animator.SetBool(throwingHash, false);
 
@@ -80,14 +94,15 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
                
             //aim to target
 
-            Vector3 playerMiddle = new Vector3(context.player.transform.position.x, context.player.transform.position.y + 1, context.player.transform.position.z);
             Vector3 ballPos = instance.transform.position;
 
-            instance.GetComponent<Snowball>().speed = playerMiddle.x > ballPos.x ? snowballSpeed : -snowballSpeed;
+            instance.GetComponent<Snowball>().speed = dir * snowballSpeed;
             instance.GetComponent<Snowball>().player = context.player.GetComponent<Warmth>();
             instance.GetComponent<Snowball>().damage = damage;
 
             instance.transform.right = playerMiddle - ballPos;
+
+            yield return new WaitForSeconds(attackCooldown);
         }
     }
 
