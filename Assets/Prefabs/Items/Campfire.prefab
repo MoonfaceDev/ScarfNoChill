@@ -326,7 +326,7 @@ Transform:
   - {fileID: 209968916}
   - {fileID: 1387011463}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8047041059204152694
 SpriteRenderer:
@@ -443,4 +443,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 472283912}
-  timeToLiveSeconds: 5
+  timeToLiveSeconds: 30
