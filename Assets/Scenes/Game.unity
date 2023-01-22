@@ -57747,6 +57747,21 @@ MonoBehaviour:
       index: 1
     resultName: Scarf Upgrade 2
     resultIcon: {fileID: -850741911, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+  - recipe:
+      scoreRequirement: 45000
+      scoreBonus: 0
+      ingredients:
+      - objectType: Wood
+        amount: 100
+      - objectType: Coal
+        amount: 60
+      - objectType: Lightning
+        amount: 100
+      - objectType: Ice
+        amount: 30
+      index: 2
+    resultName: Scarf Upgrade 2
+    resultIcon: {fileID: 21300000, guid: 340fbc9174511394fb5d8b2c7cdbb653, type: 3}
   bootsRecipe:
     recipe:
       scoreRequirement: 3500
