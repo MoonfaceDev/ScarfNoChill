@@ -57737,7 +57737,7 @@ MonoBehaviour:
       - objectType: Ice
         amount: 20
       index: 0
-    resultName: Scarf Upgrade
+    resultName: Scarf Upgrade 1
     resultIcon: {fileID: 1258044747, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
   - recipe:
       scoreRequirement: 25000
@@ -57761,7 +57761,7 @@ MonoBehaviour:
       - objectType: Ice
         amount: 30
       index: 2
-    resultName: Scarf Upgrade 2
+    resultName: Victory
     resultIcon: {fileID: 21300000, guid: 340fbc9174511394fb5d8b2c7cdbb653, type: 3}
   bootsRecipe:
     recipe:
@@ -60044,7 +60044,7 @@ PrefabInstance:
     - target: {fileID: 6169052697432133662, guid: f0167d189e5e20446ac2c558b3ebc8e0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 7a4808d4a03a67d4197bf71a2567732b, type: 2}
+      objectReference: {fileID: 9100000, guid: 726e432620306a84cbb345e399df7e8a, type: 2}
     - target: {fileID: 6169052697432133663, guid: f0167d189e5e20446ac2c558b3ebc8e0, type: 3}
       propertyPath: attackIntervalSecondsRange.x
       value: 1
@@ -60972,7 +60972,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00013634173}
-  m_SizeDelta: {x: 0, y: 1500}
+  m_SizeDelta: {x: 0, y: 2000}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1886610692
 MonoBehaviour:
