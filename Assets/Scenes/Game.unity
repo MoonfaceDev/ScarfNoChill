@@ -57545,7 +57545,7 @@ MonoBehaviour:
   spawnRecipes:
   - recipe:
       scoreRequirement: 10
-      scoreBonus: 0
+      scoreBonus: 15
       ingredients:
       - objectType: Wood
         amount: 1
@@ -57553,8 +57553,8 @@ MonoBehaviour:
     resultName: Torch
     resultIcon: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
   - recipe:
-      scoreRequirement: 30
-      scoreBonus: 0
+      scoreRequirement: 100
+      scoreBonus: 30
       ingredients:
       - objectType: Wood
         amount: 2
@@ -57565,25 +57565,25 @@ MonoBehaviour:
     resultIcon: {fileID: 866272687, guid: 7658d040f390bb044ad0aea9dd846728, type: 3}
   spawnerRecipes:
   - recipe:
-      scoreRequirement: 0
-      scoreBonus: 0
+      scoreRequirement: 1000
+      scoreBonus: 500
       ingredients:
       - objectType: Wood
         amount: 1
       objectType: Wood
       index: 0
     resultName: Wood Upgrade
-    resultIcon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
+    resultIcon: {fileID: 763112179, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
   - recipe:
-      scoreRequirement: 5
-      scoreBonus: 0
+      scoreRequirement: 7500
+      scoreBonus: 750
       ingredients:
       - objectType: Wood
-        amount: 2
+        amount: 1
       objectType: Wood
-      index: 1
-    resultName: Wood Upgrade 2
-    resultIcon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
+      index: 0
+    resultName: Wood Upgrade
+    resultIcon: {fileID: 763112179, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
   scarfRecipes:
   - recipe:
       scoreRequirement: 50
