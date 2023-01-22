@@ -940,6 +940,7 @@ MonoBehaviour:
   staminaReductionRate: 2
   staminaIncrementRate: 4
   heatReductionMultiplier: 0.75
+  menu: {fileID: 0}
   stamina: 0
 --- !u!114 &419211972
 MonoBehaviour:
@@ -1023,6 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60400e9075241f74a8c435950fee88d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageColor: {r: 0.2627451, g: 0.85098046, b: 0.8000001, a: 1}
   damageRate: 2.5
   healRate: 0
   deathEvent:

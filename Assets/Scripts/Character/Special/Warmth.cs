@@ -43,12 +43,16 @@ public class Warmth : CharacterBehaviour
     public void TakeDamage(float damage)
     {
         warmth -= damage;
-
+        StartCoroutine(AnimateDamage());
     }
 
     private IEnumerator AnimateDamage()
     {
-        yield return new WaitForSeconds(1);
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+
+        sprite.color = damageColor;
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = Color.white;
     }
 
 }

@@ -23,7 +23,7 @@ public class Snowball : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            player.warmth -= damage;
+            player.TakeDamage(damage);
             Debug.Log("snowball hit \n[from snowball prefab]");
         }
         
