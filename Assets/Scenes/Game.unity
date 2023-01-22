@@ -58403,6 +58403,12 @@ MonoBehaviour:
   - Name: jump
     AudioClip: {fileID: 8300000, guid: 3bc8d622f36e2474c99be53d767e6071, type: 3}
     soundType: 2
+  - Name: damage
+    AudioClip: {fileID: 8300000, guid: 7bd9266b3bcd83a48adf371abc65b1fd, type: 3}
+    soundType: 2
+  - Name: death
+    AudioClip: {fileID: 8300000, guid: 8fb55daaf0ad85e46a09e3433a144cd6, type: 3}
+    soundType: 2
   playInBackround: 
   backgroundNoiseSource: {fileID: 1933344303}
   musicSource: {fileID: 1447953710}

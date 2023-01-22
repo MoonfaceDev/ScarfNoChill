@@ -102,6 +102,7 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
             return;
         }
 
+        heatReductionMultiplier *= 0.6f;
         Character.Animator.runtimeAnimatorController = suits[++tier];
     }
 }

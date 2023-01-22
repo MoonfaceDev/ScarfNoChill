@@ -41,6 +41,7 @@ public class AudioManager : BaseComponent
             if (sound.Name == name)
             {
                 sfxSource.clip = sound.AudioClip;
+                sfxSource.Stop();
                 sfxSource.Play();
             }
     }
