@@ -28,8 +28,20 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     public float snowballSpeed;
 
     public GameObject spawnPoint;
-    public GameObject aimObject;
     public GameObject snowball;
+
+    private Context context;
+
+    protected override void Awake()
+    {
+        context = new Context(GameObject.FindGameObjectWithTag("Player"));
+    }
+
+    private void Update()
+    {
+        if (!Active)
+            Play(context);
+    }
 
     public override bool CanPlay(Context context)
     {
@@ -42,19 +54,25 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     protected override void Execute(Context context)
     {
         Active = true;
-        StartCoroutine(ThrowSnowballs(context.player.transform));
+        StartCoroutine(ThrowSnowballs(context));
     }
 
-    private IEnumerator ThrowSnowballs(Transform playerPos)
+    private IEnumerator ThrowSnowballs(Context context)
     { 
         while (Active)
         {
             float randomInterval = Random.Range(attackIntervalSecondsRange.x, attackIntervalSecondsRange.y);
             yield return new WaitForSeconds(randomInterval);
 
-            //aim to target
-            aimObject.transform.right = playerPos.position - transform.position;
-            Instantiate(snowball, spawnPoint.transform.position, aimObject.transform.rotation);
+            GameObject instance = Instantiate(snowball, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            
+
+            Vector3 playerMiddle = new Vector3(context.player.transform.position.x, context.player.transform.position.y + 1, context.player.transform.position.z);
+            Vector3 ballPos = instance.transform.position;
+
+            instance.GetComponent<Snowball>().speed = playerMiddle.x > ballPos.x ? snowballSpeed : -snowballSpeed;
+
+            instance.transform.right = playerMiddle - ballPos;
         }
     }
 

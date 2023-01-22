@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Snowball : MonoBehaviour
 {
-    private new Rigidbody2D rigidbody;
+    [HideInInspector]
     public float speed;
 
     void Update()
     {
-        rigidbody.velocity = new Vector2(speed, 0);
+        transform.Translate(transform.right * speed * Time.deltaTime);
     }
 }
