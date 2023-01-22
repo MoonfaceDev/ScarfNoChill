@@ -40,7 +40,6 @@ public class Craft : CharacterBehaviour
         }
         ConsumeIngredients(recipe.ingredients);
         recipe.Craft(gameObject);
-        score.score += recipe.scoreBonus;
     }
 
     private void ConsumeIngredients(IEnumerable<Recipe.Ingredient> ingredients)
