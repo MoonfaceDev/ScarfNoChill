@@ -9,10 +9,10 @@ public class Warmth : CharacterBehaviour
     [HideInInspector] public float healRate;
 
     public UnityEvent deathEvent;
+    public DeathScene death;
 
     [HideInInspector] public float warmth;
 
-    private static readonly int DyingHash = Animator.StringToHash("dying");
 
     protected override void Awake()
     {
@@ -32,7 +32,7 @@ public class Warmth : CharacterBehaviour
     private void Kill()
     {
         warmth = 0;
-        Animator.SetBool(DyingHash, true);
+        death.Play(new DeathScene.Context());
         deathEvent.Invoke();
         Debug.Log("no chill!!\n [character is dead]");
     }
