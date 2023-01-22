@@ -11,6 +11,11 @@ public class PauseMenu : MonoBehaviour
 
     bool end = false;
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !end)
@@ -41,10 +46,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void WinPanel()
+    public void WinPanel(int score)
     {
         end = true;
-        title.text = "You Survived!";
+        title.text = "You Survived!\nSCORE: " + score;
         panel.SetActive(true);
         Time.timeScale = 0;
     }
