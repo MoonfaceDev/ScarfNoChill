@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fall 1
+  m_Name: ScarfOn 2
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -687397676, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
-    - time: 0.35
-      value: {fileID: -1492061503, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+      value: {fileID: -52062058, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+    - time: 0.15
+      value: {fileID: -1594731261, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+    - time: 0.3
+      value: {fileID: 103914369, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+    - time: 0.45
+      value: {fileID: 63330987, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -43,14 +47,16 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: -687397676, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
-    - {fileID: -1492061503, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+    - {fileID: -52062058, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+    - {fileID: -1594731261, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+    - {fileID: 103914369, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+    - {fileID: 63330987, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35999998
+    m_StopTime: 0.45999998
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

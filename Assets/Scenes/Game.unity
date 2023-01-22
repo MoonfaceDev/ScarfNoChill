@@ -819,7 +819,7 @@ Animator:
   m_GameObject: {fileID: 419211963}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 5f3a18eae7adf51488f4ecf919c4d262, type: 2}
+  m_Controller: {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -933,8 +933,9 @@ MonoBehaviour:
   tier: 0
   suits:
   - {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
-  - {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
-  - {fileID: 9100000, guid: daa4787688ab3c44fbae46d8efffffbf, type: 2}
+  - {fileID: 22100000, guid: 5f3a18eae7adf51488f4ecf919c4d262, type: 2}
+  - {fileID: 22100000, guid: 5d7878fcb00bb1c43987bb2f0e2080a9, type: 2}
+  - {fileID: 22100000, guid: 5d7878fcb00bb1c43987bb2f0e2080a9, type: 2}
   maxStamina: 10
   staminaThreshold: 3.8
   staminaReductionRate: 2
@@ -57747,6 +57748,21 @@ MonoBehaviour:
       index: 1
     resultName: Scarf Upgrade 2
     resultIcon: {fileID: -850741911, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+  - recipe:
+      scoreRequirement: 45000
+      scoreBonus: 0
+      ingredients:
+      - objectType: Wood
+        amount: 100
+      - objectType: Coal
+        amount: 60
+      - objectType: Lightning
+        amount: 100
+      - objectType: Ice
+        amount: 30
+      index: 2
+    resultName: Scarf Upgrade 2
+    resultIcon: {fileID: 21300000, guid: 340fbc9174511394fb5d8b2c7cdbb653, type: 3}
   bootsRecipe:
     recipe:
       scoreRequirement: 3500
