@@ -24,6 +24,9 @@ public class Jump : PlayableBehaviour<Jump.Context>
         {
             jumping = value;
             Animator.SetBool(JumpingHash, value);
+
+            if (value)
+                Character.audioManager.PlaySFX("jump");
         }
     }
 
