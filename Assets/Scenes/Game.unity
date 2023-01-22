@@ -57593,50 +57593,168 @@ MonoBehaviour:
       scoreBonus: 500
       ingredients:
       - objectType: Wood
-        amount: 1
+        amount: 15
+      - objectType: Lightning
+        amount: 20
       objectType: Wood
       index: 0
-    resultName: Wood Upgrade
+    resultName: Wood Upgrade 1
     resultIcon: {fileID: 763112179, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
   - recipe:
-      scoreRequirement: 7500
+      scoreRequirement: 17500
       scoreBonus: 750
       ingredients:
       - objectType: Wood
-        amount: 1
+        amount: 30
+      - objectType: Lightning
+        amount: 40
       objectType: Wood
+      index: 1
+    resultName: Wood Upgrade 2
+    resultIcon: {fileID: -70977429, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Wood
+        amount: 50
+      - objectType: Lightning
+        amount: 80
+      objectType: Wood
+      index: 2
+    resultName: Wood Upgrade 3
+    resultIcon: {fileID: 258668912, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
+  - recipe:
+      scoreRequirement: 1000
+      scoreBonus: 500
+      ingredients:
+      - objectType: Coal
+        amount: 10
+      - objectType: Lightning
+        amount: 20
+      objectType: Coal
       index: 0
-    resultName: Wood Upgrade
-    resultIcon: {fileID: 763112179, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
+    resultName: Coal Upgrade 1
+    resultIcon: {fileID: -749663722, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
+  - recipe:
+      scoreRequirement: 17500
+      scoreBonus: 750
+      ingredients:
+      - objectType: Coal
+        amount: 20
+      - objectType: Lightning
+        amount: 40
+      objectType: Coal
+      index: 1
+    resultName: Coal Upgrade 2
+    resultIcon: {fileID: 929394836, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Coal
+        amount: 40
+      - objectType: Lightning
+        amount: 80
+      objectType: Coal
+      index: 2
+    resultName: Coal Upgrade 3
+    resultIcon: {fileID: -908176756, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
+  - recipe:
+      scoreRequirement: 1000
+      scoreBonus: 500
+      ingredients:
+      - objectType: Lightning
+        amount: 35
+      objectType: Lightning
+      index: 0
+    resultName: Lightning Upgrade 1
+    resultIcon: {fileID: 1685540780, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
+  - recipe:
+      scoreRequirement: 17500
+      scoreBonus: 750
+      ingredients:
+      - objectType: Lightning
+        amount: 60
+      objectType: Lightning
+      index: 1
+    resultName: Lightning Upgrade 2
+    resultIcon: {fileID: -1853059700, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Lightning
+        amount: 120
+      objectType: Lightning
+      index: 2
+    resultName: Lightning Upgrade 3
+    resultIcon: {fileID: -479711425, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
+  - recipe:
+      scoreRequirement: 1000
+      scoreBonus: 500
+      ingredients:
+      - objectType: Ice
+        amount: 6
+      - objectType: Lightning
+        amount: 20
+      objectType: Ice
+      index: 0
+    resultName: Ice Upgrade 1
+    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
+  - recipe:
+      scoreRequirement: 17500
+      scoreBonus: 750
+      ingredients:
+      - objectType: Ice
+        amount: 12
+      - objectType: Lightning
+        amount: 40
+      objectType: Ice
+      index: 1
+    resultName: Ice Upgrade 2
+    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Ice
+        amount: 20
+      - objectType: Lightning
+        amount: 80
+      objectType: Ice
+      index: 2
+    resultName: Ice Upgrade 3
+    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
   scarfRecipes:
   - recipe:
-      scoreRequirement: 50
-      scoreBonus: 0
+      scoreRequirement: 5000
+      scoreBonus: 10000
       ingredients:
-      - objectType: Wood
-        amount: 10
+      - objectType: Ice
+        amount: 20
       index: 0
     resultName: Scarf Upgrade
-    resultIcon: {fileID: 1609114715, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+    resultIcon: {fileID: 1258044747, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
   - recipe:
-      scoreRequirement: 100
-      scoreBonus: 0
+      scoreRequirement: 25000
+      scoreBonus: 10000
       ingredients:
-      - objectType: Wood
-        amount: 20
+      - objectType: Ice
+        amount: 50
       index: 1
     resultName: Scarf Upgrade 2
-    resultIcon: {fileID: 1609114715, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+    resultIcon: {fileID: -850741911, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
   bootsRecipe:
     recipe:
-      scoreRequirement: 0
-      scoreBonus: 0
+      scoreRequirement: 3500
+      scoreBonus: 1000
       ingredients:
-      - objectType: Wood
-        amount: 5
-      multiplier: 2
+      - objectType: Lightning
+        amount: 30
+      multiplier: 1.5
     resultName: Boots
-    resultIcon: {fileID: 173644818, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+    resultIcon: {fileID: 21300000, guid: 22b7d743cdadc6347aaebcdf66cc2e24, type: 3}
   recipesLayout: {fileID: 1886610691}
   recipePrefab: {fileID: 8073404020077747707, guid: 04c5d35b724111041a0b8794de44eada, type: 3}
 --- !u!1 &960294011
