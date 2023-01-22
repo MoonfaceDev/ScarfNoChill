@@ -750,7 +750,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1456080094}
-  - {fileID: 554980097}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -906,8 +905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wind: {fileID: 5450979613887549253, guid: 1225ddc7af6a79944a4939756945925f, type: 3}
-  intervalRange: {x: 10, y: 20}
-  spawnPoint: {fileID: 554980097}
+  intervalRange: {x: 5, y: 5}
+  spawnPointOffset: 15
 --- !u!1 &429953687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,37 +1605,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &554980096
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 554980097}
-  m_Layer: 0
-  m_Name: wind spawn point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &554980097
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554980096}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.07, y: 0.88, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 419211970}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &610525282
 GameObject:
   m_ObjectHideFlags: 0
@@ -58492,6 +58460,7 @@ MonoBehaviour:
   spawnRecipes:
   - recipe:
       scoreRequirement: 10
+      scoreBonus: 0
       ingredients:
       - objectType: Wood
         amount: 1
@@ -58500,6 +58469,7 @@ MonoBehaviour:
     resultIcon: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
   - recipe:
       scoreRequirement: 30
+      scoreBonus: 0
       ingredients:
       - objectType: Wood
         amount: 2
@@ -58511,6 +58481,7 @@ MonoBehaviour:
   spawnerRecipes:
   - recipe:
       scoreRequirement: 0
+      scoreBonus: 0
       ingredients:
       - objectType: Wood
         amount: 1
@@ -58520,6 +58491,7 @@ MonoBehaviour:
     resultIcon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
   - recipe:
       scoreRequirement: 5
+      scoreBonus: 0
       ingredients:
       - objectType: Wood
         amount: 2
@@ -58530,6 +58502,7 @@ MonoBehaviour:
   scarfRecipes:
   - recipe:
       scoreRequirement: 50
+      scoreBonus: 0
       ingredients:
       - objectType: Wood
         amount: 10
@@ -58538,6 +58511,7 @@ MonoBehaviour:
     resultIcon: {fileID: 1609114715, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
   - recipe:
       scoreRequirement: 100
+      scoreBonus: 0
       ingredients:
       - objectType: Wood
         amount: 20
@@ -58547,6 +58521,7 @@ MonoBehaviour:
   bootsRecipe:
     recipe:
       scoreRequirement: 0
+      scoreBonus: 0
       ingredients:
       - objectType: Wood
         amount: 5

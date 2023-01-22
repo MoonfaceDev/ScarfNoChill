@@ -22,7 +22,6 @@ public class WindColliderSpawner : BaseComponent
 
             //set a reference to the wind object
             instance.GetComponent<WindFlowBehavior>().wind = wind;
-            Destroy(instance, 2f);
         }
     }
 }

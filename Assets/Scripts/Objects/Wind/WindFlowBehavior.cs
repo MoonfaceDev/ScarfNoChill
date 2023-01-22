@@ -3,7 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class WindFlowBehavior : BaseComponent
 {
+    public float lifeSpanSeconds;
     [HideInInspector] public WindBehavior wind;
+
+    private void OnEnable()
+    {
+        Destroy(gameObject, lifeSpanSeconds);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
