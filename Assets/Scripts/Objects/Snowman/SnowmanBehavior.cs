@@ -36,6 +36,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
 
     protected override void Awake()
     {
+        base.Awake();
         context = new Context(GameObject.FindGameObjectWithTag("Player"));
     }
 

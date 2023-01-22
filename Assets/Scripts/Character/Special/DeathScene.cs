@@ -25,6 +25,12 @@ public class DeathScene : PlayableBehaviour<DeathScene.Context>
         set => active = true;
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        ToggleAllAbilities(true);
+    }
+
     public override void Stop()
     {
         throw new System.NotImplementedException();
@@ -33,16 +39,19 @@ public class DeathScene : PlayableBehaviour<DeathScene.Context>
     protected override void Execute(Context context)
     {
         active = true;
-
-        walk.Enabled = false;
-        jump.Enabled = false;
-        scarf.Enabled = false;
-        craft.Enabled = false;
-
+        ToggleAllAbilities(false);
         Animator.SetBool(DyingHash, true);
 
 
         StartCoroutine(StartScene());
+    }
+
+    public void ToggleAllAbilities(bool toggle)
+    {
+        walk.Enabled = toggle;
+        jump.Enabled = toggle;
+        scarf.Enabled = toggle;
+        craft.Enabled = toggle;
     }
 
     private IEnumerator StartScene()

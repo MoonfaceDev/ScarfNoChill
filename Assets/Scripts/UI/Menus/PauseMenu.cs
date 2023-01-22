@@ -11,6 +11,11 @@ public class PauseMenu : MonoBehaviour
 
     bool end = false;
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !end)

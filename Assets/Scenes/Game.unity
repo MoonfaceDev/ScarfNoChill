@@ -59897,6 +59897,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: snowball
       objectReference: {fileID: 0}
+    - target: {fileID: 6169052697432133661, guid: f0167d189e5e20446ac2c558b3ebc8e0, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1087416379}
+    - target: {fileID: 6169052697432133661, guid: f0167d189e5e20446ac2c558b3ebc8e0, type: 3}
+      propertyPath: groundTrigger
+      value: 
+      objectReference: {fileID: 1456080096}
+    - target: {fileID: 6169052697432133662, guid: f0167d189e5e20446ac2c558b3ebc8e0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7a4808d4a03a67d4197bf71a2567732b, type: 2}
     - target: {fileID: 6169052697432133663, guid: f0167d189e5e20446ac2c558b3ebc8e0, type: 3}
       propertyPath: attackIntervalSecondsRange.x
       value: 1
@@ -61138,7 +61150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1972771737
 GameObject:
