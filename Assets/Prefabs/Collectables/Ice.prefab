@@ -49,7 +49,7 @@ MonoBehaviour:
   onConsume:
     m_PersistentCalls:
       m_Calls: []
-  score: 5
+  score: 50
 --- !u!212 &5145845473538516851
 SpriteRenderer:
   m_ObjectHideFlags: 0
