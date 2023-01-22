@@ -26,6 +26,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     public Vector2 attackIntervalSecondsRange;
     public float attackRange;
     public float snowballSpeed;
+    public float damage;
 
     public GameObject spawnPoint;
     public GameObject snowball;
@@ -39,6 +40,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
 
     private void Update()
     {
+        //check if player is close
         if (!Active)
             Play(context);
     }
@@ -61,16 +63,24 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     { 
         while (Active)
         {
+
             float randomInterval = Random.Range(attackIntervalSecondsRange.x, attackIntervalSecondsRange.y);
             yield return new WaitForSeconds(randomInterval);
 
+            //player got far away
+            if (!CanPlay(context))
+                Stop();
+
             GameObject instance = Instantiate(snowball, spawnPoint.transform.position, spawnPoint.transform.rotation);
-            
+               
+            //aim to target
 
             Vector3 playerMiddle = new Vector3(context.player.transform.position.x, context.player.transform.position.y + 1, context.player.transform.position.z);
             Vector3 ballPos = instance.transform.position;
 
             instance.GetComponent<Snowball>().speed = playerMiddle.x > ballPos.x ? snowballSpeed : -snowballSpeed;
+            instance.GetComponent<Snowball>().player = context.player.GetComponent<Warmth>();
+            instance.GetComponent<Snowball>().damage = damage;
 
             instance.transform.right = playerMiddle - ballPos;
         }

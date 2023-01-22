@@ -160,9 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f579870062ebc3e4b839b834634730c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackIntervalSecondsRange: {x: 2, y: 7}
+  attackIntervalSecondsRange: {x: 0.1, y: 0.5}
   attackRange: 10
   snowballSpeed: 10
+  damage: 10
   spawnPoint: {fileID: 6169052697801668963}
   snowball: {fileID: 5986505277085826458, guid: 4d69881792990c44ba6bd44b8965039f, type: 3}
 --- !u!1 &6169052697801668963
