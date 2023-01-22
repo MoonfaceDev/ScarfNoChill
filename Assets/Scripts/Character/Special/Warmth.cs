@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Events;
 
 public class Warmth : CharacterBehaviour
 {
     public const float MaxWarmth = 100;
+
+    public Color damageColor;
 
     public float damageRate;
     [HideInInspector] public float healRate;
@@ -36,4 +39,16 @@ public class Warmth : CharacterBehaviour
         deathEvent.Invoke();
         Debug.Log("no chill!!\n [character is dead]");
     }
+
+    public void TakeDamage(float damage)
+    {
+        warmth -= damage;
+
+    }
+
+    private IEnumerator AnimateDamage()
+    {
+        yield return new WaitForSeconds(1);
+    }
+
 }

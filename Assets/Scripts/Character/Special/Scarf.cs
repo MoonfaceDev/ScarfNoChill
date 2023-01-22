@@ -40,6 +40,8 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
     [Range(0, 1)]
     public float heatReductionMultiplier;
 
+    public PauseMenu menu;
+
     [HideInInspector] public float stamina;
     private Walk walk;
     private Warmth warmth;
@@ -94,6 +96,12 @@ public class Scarf : PlayableBehaviour<Scarf.Context>
 
     public void AdvanceTier()
     {
+        if (tier == 2)
+        {
+            menu.WinPanel(GetComponent<Score>().score);
+            return;
+        }
+
         Character.Animator.runtimeAnimatorController = suits[++tier];
     }
 }
