@@ -35,6 +35,7 @@ public class Warmth : CharacterBehaviour
     private void Kill()
     {
         warmth = 0;
+        Character.audioManager.PlaySFX("death");
         death.Play(new DeathScene.Context());
         deathEvent.Invoke();
         Debug.Log("no chill!!\n [character is dead]");
@@ -43,6 +44,7 @@ public class Warmth : CharacterBehaviour
     public void TakeDamage(float damage)
     {
         warmth -= damage;
+        Character.audioManager.PlaySFX("damage");
         StartCoroutine(AnimateDamage());
     }
 
