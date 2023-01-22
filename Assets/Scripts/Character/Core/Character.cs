@@ -7,6 +7,8 @@ public class Character : BaseComponent
 
     public Animator Animator { get; private set; }
 
+    public AudioManager audioManager;
+
     public float LookDirection
     {
         get => lookDirection;
