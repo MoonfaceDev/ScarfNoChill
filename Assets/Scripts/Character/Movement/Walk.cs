@@ -24,9 +24,6 @@ public class Walk : PlayableBehaviour<Walk.Context>
         {
             walking = value;
             Animator.SetBool(WalkingHash, walking);
-
-            if (walking)
-                Character.audioManager.PlaySFX("walk");
            
         }
     }
