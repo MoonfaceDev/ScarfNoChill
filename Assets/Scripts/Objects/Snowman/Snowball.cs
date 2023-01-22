@@ -18,10 +18,15 @@ public class Snowball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "snowball")
+            return;
+
         if (collision.gameObject.tag == "Player")
         {
             player.warmth -= damage;
             Debug.Log("snowball hit \n[from snowball prefab]");
         }
+        
+        Destroy(gameObject);
     }
 }

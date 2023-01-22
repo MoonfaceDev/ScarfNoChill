@@ -13,6 +13,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
             this.player = player;
         }
     }
+    private static readonly int throwingHash = Animator.StringToHash("throw");
 
     public override bool Playing => Active;
     private bool active;
@@ -63,9 +64,12 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     { 
         while (Active)
         {
+            Character.Animator.SetBool(throwingHash, true);
 
             float randomInterval = Random.Range(attackIntervalSecondsRange.x, attackIntervalSecondsRange.y);
             yield return new WaitForSeconds(randomInterval);
+
+            Character.Animator.SetBool(throwingHash, false);
 
             //player got far away
             if (!CanPlay(context))
