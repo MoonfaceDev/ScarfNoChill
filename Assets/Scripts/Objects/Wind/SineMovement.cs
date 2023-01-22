@@ -16,7 +16,7 @@ public class SineMovement : BaseComponent
     {
         if (randomPhase)
         {
-            phase = Random.Range(-5, 5);
+            phase = Random.Range(-3, 3);
         }
 
         if (randomSpeed)

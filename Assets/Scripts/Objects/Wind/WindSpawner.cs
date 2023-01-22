@@ -9,7 +9,9 @@ public class WindSpawner : PlayableBehaviour<WindSpawner.Context>
     public GameObject wind;
     public Vector2 intervalRange;
 
-    public Transform spawnPoint;
+    public float spawnPointOffset;
+
+    private Vector3 spawnPointPos;
 
     public override bool Playing => Active;
 
@@ -33,8 +35,10 @@ public class WindSpawner : PlayableBehaviour<WindSpawner.Context>
             var delay = Random.Range(intervalRange.x, intervalRange.y);
             yield return new WaitForSeconds(delay);
 
-            var instance = Instantiate(wind, spawnPoint.position, transform.rotation);
-            Destroy(instance, 15);
+            spawnPointPos = new Vector3(transform.position.x - spawnPointOffset, transform.position.y, 1);
+
+            var instance = Instantiate(wind, spawnPointPos, transform.rotation);
+            Destroy(instance, 10);
         }
     }
 }
