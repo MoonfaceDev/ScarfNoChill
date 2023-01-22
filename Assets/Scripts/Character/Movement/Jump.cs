@@ -7,6 +7,8 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     private new Rigidbody2D rigidbody;
 
+    public Scarf scarf;
+
     public float thrust;
     public float maxAccelerateSeconds;
     public override bool Playing => Jumping;
@@ -38,7 +40,7 @@ public class Jump : PlayableBehaviour<Jump.Context>
 
     public override bool CanPlay(Context context)
     {
-        return base.CanPlay(context) && Character.Grounded;
+        return base.CanPlay(context) && Character.Grounded && !scarf.Active;
     }
 
     protected override void Execute(Context context)

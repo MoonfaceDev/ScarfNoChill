@@ -29,6 +29,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     public float attackRange;
     public float snowballSpeed;
     public float damage;
+    public float rotationModifier;
 
     public GameObject spawnPoint;
     public GameObject snowball;
@@ -78,7 +79,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
             }
             else
             {
-                dir = 0;
+                dir = -1;
                 transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             }
 
@@ -91,16 +92,13 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
                 Stop();
 
             GameObject instance = Instantiate(snowball, spawnPoint.transform.position, spawnPoint.transform.rotation);
-               
-            //aim to target
 
+            //aim to target
             Vector3 ballPos = instance.transform.position;
 
-            instance.GetComponent<Snowball>().speed = dir * snowballSpeed;
+            instance.GetComponent<Snowball>().speed = snowballSpeed * dir;
             instance.GetComponent<Snowball>().player = context.player.GetComponent<Warmth>();
             instance.GetComponent<Snowball>().damage = damage;
-
-            instance.transform.right = playerMiddle - ballPos;
 
             yield return new WaitForSeconds(attackCooldown);
         }

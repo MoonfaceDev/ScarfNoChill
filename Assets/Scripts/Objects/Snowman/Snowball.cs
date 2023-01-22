@@ -18,12 +18,18 @@ public class Snowball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Scarf scarf = FindObjectOfType<Scarf>();
+
         if (collision.gameObject.tag == "snowball")
             return;
 
         if (collision.gameObject.tag == "Player")
         {
-            player.TakeDamage(damage);
+            if (scarf.Active)
+                player.TakeDamage(damage * 0.25f);
+            else
+                player.TakeDamage(damage);
+
             Debug.Log("snowball hit \n[from snowball prefab]");
         }
         
