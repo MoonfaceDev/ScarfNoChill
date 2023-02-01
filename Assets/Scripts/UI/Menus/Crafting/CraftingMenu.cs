@@ -38,15 +38,17 @@ public class CraftingMenu : BaseComponent
 
     private Dictionary<string, CollectableView> collectableViews;
     private List<Tuple<Recipe, CraftingRecipeView>> recipeViews;
+    private SpawnersManager collectableSpawnersManager;
 
     private void Awake()
     {
-        InitializeCollectables();
         recipeViews = new List<Tuple<Recipe, CraftingRecipeView>>();
+        collectableSpawnersManager = FindObjectOfType<SpawnersManager>();
+        InitializeCollectables();
         InitializeRecipes();
     }
 
-    private void InitializeCollectables()
+    public void InitializeCollectables()
     {
         collectableViews = new Dictionary<string, CollectableView>();
 
@@ -55,6 +57,7 @@ public class CraftingMenu : BaseComponent
             var collectableInstance = Instantiate(collectablePrefab, collectablesLayout);
             var collectableView = collectableInstance.GetComponent<CollectableView>();
             collectableView.Initialize(collectable.icon);
+            collectableView.UpdateAmount(0);
             collectableViews[collectable.objectType] = collectableView;
         }
     }
@@ -71,7 +74,9 @@ public class CraftingMenu : BaseComponent
         {
             recipeViews.Add(new Tuple<Recipe, CraftingRecipeView>(recipe.recipe, InitializeRecipe(recipe)));
         }
-        
+
+        collectableSpawnersManager.Initialize();
+
         foreach (var recipe in spawnerRecipes)
         {
             if (recipe.recipe.index == SpawnersManager.tiers[recipe.recipe.objectType])

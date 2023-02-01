@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 73617308}
   - component: {fileID: 73617307}
   - component: {fileID: 73617311}
+  - component: {fileID: 73617312}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -428,6 +429,7 @@ RectTransform:
   - {fileID: 1557977745}
   - {fileID: 936118374}
   - {fileID: 222433035}
+  - {fileID: 1442997727}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -450,6 +452,238 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 222433034}
   title: {fileID: 184134620}
+--- !u!114 &73617312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73617306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e67c9b5cac746c49c0f4e5f4679e9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 419211975}
+  craft: {fileID: 419211973}
+  scarf: {fileID: 419211971}
+  collectables:
+  - objectType: Wood
+    icon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
+  - objectType: Coal
+    icon: {fileID: 21300000, guid: 59a11859a29ce4746978bb6a347bd37e, type: 3}
+  - objectType: Lightning
+    icon: {fileID: 21300000, guid: 5f232c846dc1e454fb2e98dfb42b479f, type: 3}
+  - objectType: Ice
+    icon: {fileID: 21300000, guid: 7b9a3262197ef464cbf7b7194fe03e17, type: 3}
+  collectablesLayout: {fileID: 104416712}
+  collectablePrefab: {fileID: 4760543190229374480, guid: a1dbf49bbddbd7f4387b4de5ed141956, type: 3}
+  spawnRecipes:
+  - recipe:
+      scoreRequirement: 10
+      scoreBonus: 15
+      ingredients:
+      - objectType: Wood
+        amount: 1
+      resultPrefab: {fileID: 8047041059204152693, guid: ac2a75855a1197b4b806af152f7e67af, type: 3}
+    resultName: Torch
+    resultIcon: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
+  - recipe:
+      scoreRequirement: 100
+      scoreBonus: 30
+      ingredients:
+      - objectType: Wood
+        amount: 2
+      - objectType: Coal
+        amount: 3
+      resultPrefab: {fileID: 8047041059204152693, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
+    resultName: Campfire
+    resultIcon: {fileID: 866272687, guid: 7658d040f390bb044ad0aea9dd846728, type: 3}
+  spawnerRecipes:
+  - recipe:
+      scoreRequirement: 1000
+      scoreBonus: 500
+      ingredients:
+      - objectType: Wood
+        amount: 15
+      - objectType: Lightning
+        amount: 20
+      objectType: Wood
+      index: 0
+    resultName: Wood Upgrade 1
+    resultIcon: {fileID: 763112179, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
+  - recipe:
+      scoreRequirement: 17500
+      scoreBonus: 750
+      ingredients:
+      - objectType: Wood
+        amount: 30
+      - objectType: Lightning
+        amount: 40
+      objectType: Wood
+      index: 1
+    resultName: Wood Upgrade 2
+    resultIcon: {fileID: -70977429, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Wood
+        amount: 50
+      - objectType: Lightning
+        amount: 80
+      objectType: Wood
+      index: 2
+    resultName: Wood Upgrade 3
+    resultIcon: {fileID: 258668912, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
+  - recipe:
+      scoreRequirement: 1000
+      scoreBonus: 500
+      ingredients:
+      - objectType: Coal
+        amount: 10
+      - objectType: Lightning
+        amount: 20
+      objectType: Coal
+      index: 0
+    resultName: Coal Upgrade 1
+    resultIcon: {fileID: -749663722, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
+  - recipe:
+      scoreRequirement: 17500
+      scoreBonus: 750
+      ingredients:
+      - objectType: Coal
+        amount: 20
+      - objectType: Lightning
+        amount: 40
+      objectType: Coal
+      index: 1
+    resultName: Coal Upgrade 2
+    resultIcon: {fileID: 929394836, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Coal
+        amount: 40
+      - objectType: Lightning
+        amount: 80
+      objectType: Coal
+      index: 2
+    resultName: Coal Upgrade 3
+    resultIcon: {fileID: -908176756, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
+  - recipe:
+      scoreRequirement: 1000
+      scoreBonus: 500
+      ingredients:
+      - objectType: Lightning
+        amount: 35
+      objectType: Lightning
+      index: 0
+    resultName: Lightning Upgrade 1
+    resultIcon: {fileID: 1685540780, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
+  - recipe:
+      scoreRequirement: 17500
+      scoreBonus: 750
+      ingredients:
+      - objectType: Lightning
+        amount: 60
+      objectType: Lightning
+      index: 1
+    resultName: Lightning Upgrade 2
+    resultIcon: {fileID: -1853059700, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Lightning
+        amount: 120
+      objectType: Lightning
+      index: 2
+    resultName: Lightning Upgrade 3
+    resultIcon: {fileID: -479711425, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
+  - recipe:
+      scoreRequirement: 1000
+      scoreBonus: 500
+      ingredients:
+      - objectType: Ice
+        amount: 6
+      - objectType: Lightning
+        amount: 20
+      objectType: Ice
+      index: 0
+    resultName: Ice Upgrade 1
+    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
+  - recipe:
+      scoreRequirement: 17500
+      scoreBonus: 750
+      ingredients:
+      - objectType: Ice
+        amount: 12
+      - objectType: Lightning
+        amount: 40
+      objectType: Ice
+      index: 1
+    resultName: Ice Upgrade 2
+    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
+  - recipe:
+      scoreRequirement: 40000
+      scoreBonus: 1500
+      ingredients:
+      - objectType: Ice
+        amount: 20
+      - objectType: Lightning
+        amount: 80
+      objectType: Ice
+      index: 2
+    resultName: Ice Upgrade 3
+    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
+  scarfRecipes:
+  - recipe:
+      scoreRequirement: 5000
+      scoreBonus: 10000
+      ingredients:
+      - objectType: Ice
+        amount: 20
+      index: 0
+    resultName: Scarf Upgrade 1
+    resultIcon: {fileID: 1258044747, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
+  - recipe:
+      scoreRequirement: 25000
+      scoreBonus: 10000
+      ingredients:
+      - objectType: Ice
+        amount: 50
+      index: 1
+    resultName: Scarf Upgrade 2
+    resultIcon: {fileID: -850741911, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
+  - recipe:
+      scoreRequirement: 45000
+      scoreBonus: 0
+      ingredients:
+      - objectType: Wood
+        amount: 100
+      - objectType: Coal
+        amount: 60
+      - objectType: Lightning
+        amount: 100
+      - objectType: Ice
+        amount: 30
+      index: 2
+    resultName: Victory
+    resultIcon: {fileID: 21300000, guid: 340fbc9174511394fb5d8b2c7cdbb653, type: 3}
+  bootsRecipe:
+    recipe:
+      scoreRequirement: 3500
+      scoreBonus: 1000
+      ingredients:
+      - objectType: Lightning
+        amount: 30
+      multiplier: 1.5
+    resultName: Boots
+    resultIcon: {fileID: 21300000, guid: 22b7d743cdadc6347aaebcdf66cc2e24, type: 3}
+  recipesLayout: {fileID: 1886610691}
+  recipePrefab: {fileID: 8073404020077747707, guid: 04c5d35b724111041a0b8794de44eada, type: 3}
 --- !u!1 &104416711
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000111692534}
+  m_AnchoredPosition: {x: 0, y: 0.000010944033}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &104416713
@@ -835,9 +1069,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &222864350
 MonoBehaviour:
@@ -1703,8 +1937,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 619399152}
   m_HandleRect: {fileID: 619399151}
   m_Direction: 2
-  m_Value: 0.9999998
-  m_Size: 0.58666664
+  m_Value: 0.9999999
+  m_Size: 0.44000003
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2417,7 +2651,7 @@ RectTransform:
   m_Father: {fileID: 553998396}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.4133333}
+  m_AnchorMin: {x: 0, y: 0.5599999}
   m_AnchorMax: {x: 1, y: 0.99999994}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -58492,7 +58726,6 @@ GameObject:
   - component: {fileID: 936118374}
   - component: {fileID: 936118376}
   - component: {fileID: 936118375}
-  - component: {fileID: 936118377}
   m_Layer: 5
   m_Name: Crafting Menu
   m_TagString: Untagged
@@ -58513,7 +58746,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2075028199}
-  - {fileID: 1442997727}
   - {fileID: 1503447078}
   m_Father: {fileID: 73617310}
   m_RootOrder: -1
@@ -58561,238 +58793,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936118373}
   m_CullTransparentMesh: 1
---- !u!114 &936118377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936118373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e67c9b5cac746c49c0f4e5f4679e9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 419211975}
-  craft: {fileID: 419211973}
-  scarf: {fileID: 419211971}
-  collectables:
-  - objectType: Wood
-    icon: {fileID: -146241246, guid: c77ecb78d29e8ee4ca63b78be78d0fb1, type: 3}
-  - objectType: Coal
-    icon: {fileID: 21300000, guid: 59a11859a29ce4746978bb6a347bd37e, type: 3}
-  - objectType: Lightning
-    icon: {fileID: 21300000, guid: 5f232c846dc1e454fb2e98dfb42b479f, type: 3}
-  - objectType: Ice
-    icon: {fileID: 21300000, guid: 7b9a3262197ef464cbf7b7194fe03e17, type: 3}
-  collectablesLayout: {fileID: 104416712}
-  collectablePrefab: {fileID: 4760543190229374480, guid: a1dbf49bbddbd7f4387b4de5ed141956, type: 3}
-  spawnRecipes:
-  - recipe:
-      scoreRequirement: 10
-      scoreBonus: 15
-      ingredients:
-      - objectType: Wood
-        amount: 1
-      resultPrefab: {fileID: 8047041059204152693, guid: ac2a75855a1197b4b806af152f7e67af, type: 3}
-    resultName: Torch
-    resultIcon: {fileID: 390766630, guid: 8d2f134b8fd5eb94891b8d6700985232, type: 3}
-  - recipe:
-      scoreRequirement: 100
-      scoreBonus: 30
-      ingredients:
-      - objectType: Wood
-        amount: 2
-      - objectType: Coal
-        amount: 3
-      resultPrefab: {fileID: 8047041059204152693, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
-    resultName: Campfire
-    resultIcon: {fileID: 866272687, guid: 7658d040f390bb044ad0aea9dd846728, type: 3}
-  spawnerRecipes:
-  - recipe:
-      scoreRequirement: 1000
-      scoreBonus: 500
-      ingredients:
-      - objectType: Wood
-        amount: 15
-      - objectType: Lightning
-        amount: 20
-      objectType: Wood
-      index: 0
-    resultName: Wood Upgrade 1
-    resultIcon: {fileID: 763112179, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
-  - recipe:
-      scoreRequirement: 17500
-      scoreBonus: 750
-      ingredients:
-      - objectType: Wood
-        amount: 30
-      - objectType: Lightning
-        amount: 40
-      objectType: Wood
-      index: 1
-    resultName: Wood Upgrade 2
-    resultIcon: {fileID: -70977429, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
-  - recipe:
-      scoreRequirement: 40000
-      scoreBonus: 1500
-      ingredients:
-      - objectType: Wood
-        amount: 50
-      - objectType: Lightning
-        amount: 80
-      objectType: Wood
-      index: 2
-    resultName: Wood Upgrade 3
-    resultIcon: {fileID: 258668912, guid: d8973dec9712ee34c943e9b049e1e11b, type: 3}
-  - recipe:
-      scoreRequirement: 1000
-      scoreBonus: 500
-      ingredients:
-      - objectType: Coal
-        amount: 10
-      - objectType: Lightning
-        amount: 20
-      objectType: Coal
-      index: 0
-    resultName: Coal Upgrade 1
-    resultIcon: {fileID: -749663722, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
-  - recipe:
-      scoreRequirement: 17500
-      scoreBonus: 750
-      ingredients:
-      - objectType: Coal
-        amount: 20
-      - objectType: Lightning
-        amount: 40
-      objectType: Coal
-      index: 1
-    resultName: Coal Upgrade 2
-    resultIcon: {fileID: 929394836, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
-  - recipe:
-      scoreRequirement: 40000
-      scoreBonus: 1500
-      ingredients:
-      - objectType: Coal
-        amount: 40
-      - objectType: Lightning
-        amount: 80
-      objectType: Coal
-      index: 2
-    resultName: Coal Upgrade 3
-    resultIcon: {fileID: -908176756, guid: a8e30c6b5ff892c4b8ee742921d5ee10, type: 3}
-  - recipe:
-      scoreRequirement: 1000
-      scoreBonus: 500
-      ingredients:
-      - objectType: Lightning
-        amount: 35
-      objectType: Lightning
-      index: 0
-    resultName: Lightning Upgrade 1
-    resultIcon: {fileID: 1685540780, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
-  - recipe:
-      scoreRequirement: 17500
-      scoreBonus: 750
-      ingredients:
-      - objectType: Lightning
-        amount: 60
-      objectType: Lightning
-      index: 1
-    resultName: Lightning Upgrade 2
-    resultIcon: {fileID: -1853059700, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
-  - recipe:
-      scoreRequirement: 40000
-      scoreBonus: 1500
-      ingredients:
-      - objectType: Lightning
-        amount: 120
-      objectType: Lightning
-      index: 2
-    resultName: Lightning Upgrade 3
-    resultIcon: {fileID: -479711425, guid: d477a8778191fe24f9ba5fe917b99aa4, type: 3}
-  - recipe:
-      scoreRequirement: 1000
-      scoreBonus: 500
-      ingredients:
-      - objectType: Ice
-        amount: 6
-      - objectType: Lightning
-        amount: 20
-      objectType: Ice
-      index: 0
-    resultName: Ice Upgrade 1
-    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
-  - recipe:
-      scoreRequirement: 17500
-      scoreBonus: 750
-      ingredients:
-      - objectType: Ice
-        amount: 12
-      - objectType: Lightning
-        amount: 40
-      objectType: Ice
-      index: 1
-    resultName: Ice Upgrade 2
-    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
-  - recipe:
-      scoreRequirement: 40000
-      scoreBonus: 1500
-      ingredients:
-      - objectType: Ice
-        amount: 20
-      - objectType: Lightning
-        amount: 80
-      objectType: Ice
-      index: 2
-    resultName: Ice Upgrade 3
-    resultIcon: {fileID: 21300000, guid: f44d2c2ae3c94a6428caf4667369f78c, type: 3}
-  scarfRecipes:
-  - recipe:
-      scoreRequirement: 5000
-      scoreBonus: 10000
-      ingredients:
-      - objectType: Ice
-        amount: 20
-      index: 0
-    resultName: Scarf Upgrade 1
-    resultIcon: {fileID: 1258044747, guid: cfaa1c7159b728341a20761f67100c30, type: 3}
-  - recipe:
-      scoreRequirement: 25000
-      scoreBonus: 10000
-      ingredients:
-      - objectType: Ice
-        amount: 50
-      index: 1
-    resultName: Scarf Upgrade 2
-    resultIcon: {fileID: -850741911, guid: a93734384d0200b4caabd25ad52777bd, type: 3}
-  - recipe:
-      scoreRequirement: 45000
-      scoreBonus: 0
-      ingredients:
-      - objectType: Wood
-        amount: 100
-      - objectType: Coal
-        amount: 60
-      - objectType: Lightning
-        amount: 100
-      - objectType: Ice
-        amount: 30
-      index: 2
-    resultName: Victory
-    resultIcon: {fileID: 21300000, guid: 340fbc9174511394fb5d8b2c7cdbb653, type: 3}
-  bootsRecipe:
-    recipe:
-      scoreRequirement: 3500
-      scoreBonus: 1000
-      ingredients:
-      - objectType: Lightning
-        amount: 30
-      multiplier: 1.5
-    resultName: Boots
-    resultIcon: {fileID: 21300000, guid: 22b7d743cdadc6347aaebcdf66cc2e24, type: 3}
-  recipesLayout: {fileID: 1886610691}
-  recipePrefab: {fileID: 8073404020077747707, guid: 04c5d35b724111041a0b8794de44eada, type: 3}
 --- !u!1 &960294011
 GameObject:
   m_ObjectHideFlags: 0
@@ -58940,7 +58940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cddcf39fd304f7e8cd5f99b95abb9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craftingMenu: {fileID: 936118377}
+  craftingMenu: {fileID: 73617312}
 --- !u!1 &986752751
 GameObject:
   m_ObjectHideFlags: 0
@@ -60007,20 +60007,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442997726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 222864349}
   - {fileID: 1614920741}
-  m_Father: {fileID: 936118374}
+  m_Father: {fileID: 73617310}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 500, y: -150}
+  m_AnchoredPosition: {x: 30, y: -278}
+  m_SizeDelta: {x: 500, y: -200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1442997728
 MonoBehaviour:
@@ -60154,7 +60154,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.595
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -60961,7 +60961,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1797004481}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999803
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -61457,7 +61457,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -62260,7 +62260,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.214
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

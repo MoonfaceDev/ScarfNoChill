@@ -5,7 +5,7 @@ public class SpawnersManager : BaseComponent
     public static Dictionary<string, int> tiers;
     public CraftingMenu craftingMenu;
 
-    private void Awake()
+    public void Initialize()
     {
         tiers = new Dictionary<string, int>();
         foreach (var collectable in craftingMenu.collectables)

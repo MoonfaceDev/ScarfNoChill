@@ -13,12 +13,14 @@ public class Menu : BaseComponent
         if (buttonsToOpen.Any(Input.GetButtonDown) && !menuObject.activeSelf)
         {
             menuObject.SetActive(true);
+            Time.timeScale = 0;
             return;
         }
 
         if (buttonsToClose.Any(Input.GetButtonDown) && menuObject.activeSelf)
         {
             menuObject.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
