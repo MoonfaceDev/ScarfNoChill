@@ -6,34 +6,7 @@ using UnityEngine.Audio;
 public class AudioManager : BaseComponent
 {
     public Sound[] sounds;
-    public int[] playInBackround;
-
-    public AudioSource backgroundNoiseSource, musicSource, sfxSource;
-
-    private void Awake()
-    {
-        foreach (Sound sound in sounds)
-        {
-            if (sound.soundType == 0)
-                PlayBackgroundNoise(sound);
-            if (sound.soundType == 1)
-                PlayMusic(sound);
-        }
-    }
-
-    public void PlayBackgroundNoise(Sound sound)
-    {
-        backgroundNoiseSource.clip = sound.AudioClip;
-        backgroundNoiseSource.loop = true;
-        backgroundNoiseSource.Play();
-    }
-
-    public void PlayMusic(Sound sound)
-    {
-        musicSource.clip = sound.AudioClip;
-        musicSource.loop = true;
-        musicSource.Play();
-    }
+    public AudioSource sfxSource;
 
     public void PlaySFX(string name)
     {

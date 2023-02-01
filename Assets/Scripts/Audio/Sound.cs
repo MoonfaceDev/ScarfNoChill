@@ -8,9 +8,4 @@ public class Sound
 {
     public string Name;
     public AudioClip AudioClip;
-
-    // 0: background noise
-    // 1: game music
-    // 3: sfx
-    public int soundType;
 }

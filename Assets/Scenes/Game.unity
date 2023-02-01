@@ -1166,6 +1166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundTrigger: {fileID: 1456080096}
   audioManager: {fileID: 1087416379}
+  alive: 0
 --- !u!114 &419211973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2126,9 +2127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds: []
-  playInBackround: 
-  backgroundNoiseSource: {fileID: 0}
-  musicSource: {fileID: 0}
   sfxSource: {fileID: 0}
 --- !u!1 &541424235
 GameObject:
@@ -59499,22 +59497,14 @@ MonoBehaviour:
   sounds:
   - Name: wind
     AudioClip: {fileID: 8300000, guid: dc7cb2ddc740d0d4baf372c38343890e, type: 3}
-    soundType: 0
   - Name: music
     AudioClip: {fileID: 8300000, guid: 3e9f362aedc68a84e91688f6087760cd, type: 3}
-    soundType: 1
   - Name: jump
     AudioClip: {fileID: 8300000, guid: 3bc8d622f36e2474c99be53d767e6071, type: 3}
-    soundType: 2
   - Name: damage
     AudioClip: {fileID: 8300000, guid: 7bd9266b3bcd83a48adf371abc65b1fd, type: 3}
-    soundType: 2
   - Name: death
     AudioClip: {fileID: 8300000, guid: 8fb55daaf0ad85e46a09e3433a144cd6, type: 3}
-    soundType: 2
-  playInBackround: 
-  backgroundNoiseSource: {fileID: 1933344303}
-  musicSource: {fileID: 1447953710}
   sfxSource: {fileID: 1027689623}
 --- !u!1 &1127711571
 GameObject:
@@ -60160,7 +60150,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3e9f362aedc68a84e91688f6087760cd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.595
   m_Pitch: 1
@@ -62266,7 +62256,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dc7cb2ddc740d0d4baf372c38343890e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.214
   m_Pitch: 1
