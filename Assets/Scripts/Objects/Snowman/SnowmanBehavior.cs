@@ -69,7 +69,8 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
     }
 
     private IEnumerator ThrowSnowballs(Context context)
-    { 
+    {
+        print("coroutine check " + transform.position);
         while (Active)
         {
             Character.Animator.SetBool(throwingHash, true);

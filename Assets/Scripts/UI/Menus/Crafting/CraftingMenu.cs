@@ -21,6 +21,7 @@ public class CraftingMenu : BaseComponent
         public Sprite resultIcon;
     }
 
+    public CraftPanel craftingPanel;
     public Inventory inventory;
     public Craft craft;
     public Scarf scarf;
@@ -106,7 +107,7 @@ public class CraftingMenu : BaseComponent
             {
                 craft.CraftRecipe(recipe.recipe);
                 InitializeRecipes();
-                gameObject.SetActive(false);
+                craftingPanel.Disable();
             });
         return recipeView;
     }

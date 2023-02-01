@@ -21,7 +21,6 @@ public class WindFlowBehavior : BaseComponent
 
         playerWarmth.TakeDamage((playerScarf.Active ? wind.scarfDamageMultiplier : 1) * wind.damage);
 
-        Debug.Log("wind hit!");
         wind.alreadyHit = true;
     }
 }

@@ -30,7 +30,6 @@ public class Snowball : MonoBehaviour
             else
                 player.TakeDamage(damage);
 
-            Debug.Log("snowball hit \n[from snowball prefab]");
         }
         
         Destroy(gameObject);
