@@ -47,6 +47,11 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
         //check if player is close
         if (!Active)
             Play(context);
+
+        //player is too far away end coroutine
+        else if (!CanPlay(context))
+            Stop();
+
     }
 
     public override bool CanPlay(Context context)
@@ -86,10 +91,6 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
             yield return new WaitForSeconds(attackIntervalSeconds);
 
             Character.Animator.SetBool(throwingHash, false);
-
-            //player got far away
-            if (!CanPlay(context))
-                Stop();
 
             GameObject instance = Instantiate(snowball, spawnPoint.transform.position, spawnPoint.transform.rotation);
 
