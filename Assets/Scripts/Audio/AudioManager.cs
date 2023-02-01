@@ -40,6 +40,7 @@ public class AudioManager : BaseComponent
         foreach (Sound sound in sounds)
             if (sound.Name == name)
             {
+                print("playing sound - " + name);
                 sfxSource.clip = sound.AudioClip;
                 sfxSource.Stop();
                 sfxSource.Play();

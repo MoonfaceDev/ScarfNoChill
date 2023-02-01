@@ -9,6 +9,8 @@ public class Character : BaseComponent
 
     public AudioManager audioManager;
 
+    public bool alive;
+
     public float LookDirection
     {
         get => lookDirection;
@@ -39,6 +41,7 @@ public class Character : BaseComponent
         Animator = GetComponent<Animator>();
         groundTrigger.onEnter.AddListener(() => Grounded = true);
         groundTrigger.onExit.AddListener(() => Grounded = false);
+        alive = true;
     }
 
     private static Quaternion GetRotation(float direction)

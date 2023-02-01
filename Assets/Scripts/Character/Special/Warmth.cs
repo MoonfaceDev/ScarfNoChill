@@ -16,7 +16,6 @@ public class Warmth : CharacterBehaviour
 
     [HideInInspector] public float warmth;
 
-
     protected override void Awake()
     {
         base.Awake();
@@ -28,21 +27,22 @@ public class Warmth : CharacterBehaviour
         warmth = Mathf.Max(warmth - damageRate * Time.deltaTime, 0);
         warmth = Mathf.Min(warmth + healRate * Time.deltaTime, MaxWarmth);
 
-        if (warmth <= 0)
+        if (warmth == 0 && Character.alive)
             Kill();
     }
 
     private void Kill()
     {
-        warmth = 0;
-        Character.audioManager.PlaySFX("death");
+        Character.alive = false;
         death.Play(new DeathScene.Context());
         deathEvent.Invoke();
-        Debug.Log("no chill!!\n [character is dead]");
     }
 
     public void TakeDamage(float damage)
     {
+        if (!Character.alive)
+            return;
+
         warmth -= damage;
         Character.audioManager.PlaySFX("damage");
         StartCoroutine(AnimateDamage());

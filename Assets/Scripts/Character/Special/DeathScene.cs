@@ -22,7 +22,7 @@ public class DeathScene : PlayableBehaviour<DeathScene.Context>
     public bool Active
     {
         get => active;
-        set => active = true;
+        set => active = value;
     }
 
     protected override void Awake()
@@ -38,11 +38,7 @@ public class DeathScene : PlayableBehaviour<DeathScene.Context>
 
     protected override void Execute(Context context)
     {
-        active = true;
-        ToggleAllAbilities(false);
-        Animator.SetBool(DyingHash, true);
-
-
+        Active = true;
         StartCoroutine(StartScene());
     }
 
@@ -56,6 +52,9 @@ public class DeathScene : PlayableBehaviour<DeathScene.Context>
 
     private IEnumerator StartScene()
     {
+        ToggleAllAbilities(false);
+        Animator.SetBool(DyingHash, true);
+        Character.audioManager.PlaySFX("death");
         yield return new WaitForSeconds(cutsceneTime);
         panel.DeadPanel();
     }
