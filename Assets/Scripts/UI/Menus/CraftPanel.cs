@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class CraftPanel : BaseComponent
+public class CraftPanel : CharacterBehaviour
 {
     public string[] buttonsToOpen;
     public string[] buttonsToClose;
@@ -10,6 +10,9 @@ public class CraftPanel : BaseComponent
 
     private void Update()
     {
+        if (!Character.Grounded)
+            return;
+
         if (buttonsToOpen.Any(Input.GetButtonDown) && !menuObject.activeSelf)
         {
             Enable();

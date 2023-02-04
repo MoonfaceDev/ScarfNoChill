@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e67c9b5cac746c49c0f4e5f4679e9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craftingPanel: {fileID: 981313773}
+  craftingPanel: {fileID: 419211982}
   inventory: {fileID: 419211975}
   craft: {fileID: 419211973}
   scarf: {fileID: 419211971}
@@ -719,7 +719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000036239624}
+  m_AnchoredPosition: {x: 0, y: 0.00032531697}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &104416713
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 222433037}
   - component: {fileID: 222433036}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: pause menu panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1221,6 +1221,7 @@ GameObject:
   - component: {fileID: 419211979}
   - component: {fileID: 419211980}
   - component: {fileID: 419211981}
+  - component: {fileID: 419211982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1477,17 +1478,17 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 419211981}
+        m_TargetAssemblyTypeName: DeathScene, Assembly-CSharp
+        m_MethodName: set_Active
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   death: {fileID: 419211981}
   warmth: 0
@@ -1553,6 +1554,24 @@ MonoBehaviour:
   scarf: {fileID: 419211971}
   craft: {fileID: 419211973}
   panel: {fileID: 73617311}
+--- !u!114 &419211982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419211963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcdd6c960b1b41b8b716976b5fcc8fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonsToOpen:
+  - Craft
+  buttonsToClose:
+  - Craft
+  - Escape
+  menuObject: {fileID: 936118373}
 --- !u!1 &429953687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,7 +2672,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5599999}
-  m_AnchorMax: {x: 1, y: 0.99999994}
+  m_AnchorMax: {x: 1, y: 0.9999999}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -58582,6 +58601,82 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &888885597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 888885598}
+  - component: {fileID: 888885600}
+  - component: {fileID: 888885599}
+  m_Layer: 5
+  m_Name: collectible panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &888885598
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888885597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 936118374}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 140, y: 0}
+  m_SizeDelta: {x: 250, y: 500}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &888885599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888885597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3137255}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &888885600
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888885597}
+  m_CullTransparentMesh: 1
 --- !u!1 &925482595
 GameObject:
   m_ObjectHideFlags: 0
@@ -58748,6 +58843,7 @@ RectTransform:
   m_Children:
   - {fileID: 2075028199}
   - {fileID: 1503447078}
+  - {fileID: 888885598}
   m_Father: {fileID: 73617310}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58887,33 +58983,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981313774}
-  - component: {fileID: 981313773}
   - component: {fileID: 981313775}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: Spawner Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &981313773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981313772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcdd6c960b1b41b8b716976b5fcc8fcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonsToOpen:
-  - Craft
-  buttonsToClose:
-  - Craft
-  - Escape
-  menuObject: {fileID: 936118373}
 --- !u!4 &981313774
 Transform:
   m_ObjectHideFlags: 0
@@ -59496,16 +59573,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - Name: wind
-    AudioClip: {fileID: 8300000, guid: dc7cb2ddc740d0d4baf372c38343890e, type: 3}
-  - Name: music
-    AudioClip: {fileID: 8300000, guid: 3e9f362aedc68a84e91688f6087760cd, type: 3}
   - Name: jump
     AudioClip: {fileID: 8300000, guid: 3bc8d622f36e2474c99be53d767e6071, type: 3}
+    Volume: 0.2
   - Name: damage
     AudioClip: {fileID: 8300000, guid: 7bd9266b3bcd83a48adf371abc65b1fd, type: 3}
+    Volume: 0.7
   - Name: death
     AudioClip: {fileID: 8300000, guid: 8fb55daaf0ad85e46a09e3433a144cd6, type: 3}
+    Volume: 0.6
   sfxSource: {fileID: 1027689623}
 --- !u!1 &1127711571
 GameObject:
@@ -59599,6 +59675,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 209968915, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472283911, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387011462, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930991732, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8047041059204152693, guid: 8ac71d6590674eb49a3f5c8036beeee1, type: 3}
       propertyPath: m_Name
       value: Campfire
@@ -60020,7 +60112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -278}
+  m_AnchoredPosition: {x: 30, y: -299}
   m_SizeDelta: {x: 500, y: -200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1442997728
@@ -60962,7 +61054,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1797004481}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99838495
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

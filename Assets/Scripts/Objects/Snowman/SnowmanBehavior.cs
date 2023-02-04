@@ -64,6 +64,7 @@ public class SnowmanBehavior : PlayableBehaviour<SnowmanBehavior.Context>
 
     protected override void Execute(Context context)
     {
+        StopAllCoroutines();
         Active = true;
         StartCoroutine(ThrowSnowballs(context));
     }
