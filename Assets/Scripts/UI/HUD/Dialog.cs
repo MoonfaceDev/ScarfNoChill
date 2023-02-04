@@ -26,6 +26,8 @@ public class Dialog : MonoBehaviour
             text.text = messages[i];
             StartCoroutine(TextVisible());
         }
+        else
+            dialogPanel.SetActive(false);
     }
 
     private IEnumerator TextVisible()

@@ -720,7 +720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00034935662}
+  m_AnchoredPosition: {x: 0, y: 0.00002051906}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &104416713
@@ -61025,9 +61025,17 @@ MonoBehaviour:
   messages:
   - brrrr... There is a dangerous storm in our village
   - Your health points will slowly decrease while being in the storm
-  - 'Becarful a chilling wind is '
-  timeBtwnChars: 0.1
-  timeBtwnWords: 5
+  - Be careful a chilly wind is heading your way!
+  - Press Down Arrow to use the scarf
+  - 'The scarf will protect you from the cold '
+  - Press E to open/close Craft menu
+  - You can craft torch or campfire to warm you up!
+  - But first you need to gather materials from the area
+  - Gain xp points from crafting and collecting materials
+  - Upgrade your scarf to gain progress!
+  - Stay warm! ... always
+  timeBtwnChars: 0.05
+  timeBtwnWords: 1
 --- !u!1 &1580475277
 GameObject:
   m_ObjectHideFlags: 0
@@ -61325,7 +61333,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1797004481}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.96711105
+  m_Size: 0.9999952
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
