@@ -45,6 +45,7 @@ public class CraftingMenu : BaseComponent
     {
         recipeViews = new List<Tuple<Recipe, CraftingRecipeView>>();
         collectableSpawnersManager = FindObjectOfType<SpawnersManager>();
+        collectableSpawnersManager.Initialize();
         InitializeCollectables();
         InitializeRecipes();
     }
@@ -75,9 +76,7 @@ public class CraftingMenu : BaseComponent
         {
             recipeViews.Add(new Tuple<Recipe, CraftingRecipeView>(recipe.recipe, InitializeRecipe(recipe)));
         }
-
-        collectableSpawnersManager.Initialize();
-
+        
         foreach (var recipe in spawnerRecipes)
         {
             if (recipe.recipe.index == SpawnersManager.tiers[recipe.recipe.objectType])
@@ -106,6 +105,7 @@ public class CraftingMenu : BaseComponent
             () =>
             {
                 craft.CraftRecipe(recipe.recipe);
+                print(recipe.resultName);
                 InitializeRecipes();
                 craftingPanel.Disable();
             });
