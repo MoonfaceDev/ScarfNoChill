@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class Dialog : MonoBehaviour
 {
@@ -12,11 +13,21 @@ public class Dialog : MonoBehaviour
     [SerializeField] float timeBtwnChars;
     [SerializeField] float timeBtwnWords;
 
-    int i = 0;
+    private int i = 0;
 
     void Start()
     {
         EndCheck();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonUp("Continue"))
+        {
+            i += 1;
+            StopAllCoroutines();
+            EndCheck();
+        }
     }
 
     public void EndCheck()
@@ -43,9 +54,20 @@ public class Dialog : MonoBehaviour
 
             if (visibleCount >= totalVisibleCharacters)
             {
-                i += 1;
-                Invoke("EndCheck", timeBtwnWords);
-                break;
+
+                text.maxVisibleCharacters = visibleCount + 3;
+
+                string continueStr = " >>";
+                string textTemp = text.text;
+                string textContinue = text.text + continueStr;
+
+                while (true)
+                {
+                    yield return new WaitForSeconds(0.3f);
+                    text.text = textContinue;
+                    yield return new WaitForSeconds(0.3f);
+                    text.text = textTemp;
+                }
             }
 
             counter += 1;
